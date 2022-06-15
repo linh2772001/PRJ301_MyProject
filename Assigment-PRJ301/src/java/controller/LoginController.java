@@ -5,12 +5,15 @@
 
 package controller;
 
+import dal.AccountDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import model.Account;
 
 /**
  *
@@ -29,6 +32,9 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        AccountDBContext db = new AccountDBContext();
+        ArrayList<Account> acc = db.list();
+        request.setAttribute("acc", acc);
         request.getRequestDispatcher("view/login.jsp").forward(request, response);
     } 
 
@@ -42,13 +48,16 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username = getServletContext().getInitParameter("username");
-        String password = getServletContext().getInitParameter("password");
-        String un = request.getParameter("username");
-        String pw = request.getParameter("password");
-        if(username.equals(un) && password.equals(pw))
-            response.getWriter().println("Login successful");
-        else response.getWriter().println("Login failed");
+        String usename = request.getParameter("usename");
+        String password = request.getParameter("password");
+        AccountDBContext db = new AccountDBContext();
+        Account acc = db.getT(usename, password);        
+        if(acc == null)
+            response.getWriter().println("Login failed");
+        else {
+           
+            response.getWriter().println("Login succesfull");
+        }
     }
 
     /** 
