@@ -14,8 +14,8 @@
         <title>JSP Page</title>
     </head>
     <style>
-      
-       
+
+
         img{
             width: 100px;
             height: 100px;
@@ -26,46 +26,48 @@
         }
         .first{
             background-color: #04BFAD;
-           
-            
+
+
         }
-        
-       
+
+
     </style>
     <body>
-       
+
         <h2>Multiple Col Elements</h2>
         <p>Add multiple col elements in the colgroup:</p>
-    
-        <table style="width: 100%;"  >
-   <thead>
-        <tr class="first">
-            <th>INDEX</th>
-            <th>CODE</th>
-            <th>MEMBER</th>
-            <th>NAME</th>
-            <th>GENDER</th>
-            <th>DOB</th>
-            <th>IMG</th>
-            <th>ADDRESS</th>
-        </tr>
-    </thead>
-    <c:forEach items="${requestScope.students}" var="s">
-        <tbody>
-            <tr class="than">
-                <td>${s.sid}</td>
-                <td>${s.code}</td>
-                <td>${s.smember}</td>
-                <td>${s.sname}</td>
-                <td>${s.sgender}</td>
-                <td>${s.sdob}</td>
-                <td><img src="${s.simg}" alt=""/></td>
-                <td>${s.saddress}</td>
 
-            </tr>
-        </tbody>
-    </c:forEach>
-</table>
-</body>
+        <table style="width: 100%;"  >
+            <thead>
+                <tr class="first">
+                    <th>INDEX</th>
+                    <th>CODE</th>
+                    <th>MEMBER</th>
+                    <th>NAME</th>
+                    <th>GENDER</th>
+                    <th>DOB</th>
+                    <th>IMG</th>
+                    <th>ADDRESS</th>
+                </tr>
+            </thead>
+            <c:forEach items="${requestScope.students}" var="s">
+                <tbody>
+                    <tr class="than">
+                        <td>${s.sid}</td>
+                        <td>${s.code}</td>
+                        <td>${s.smember}</td>
+                        <td>${s.sname}</td>
+                        <td>${s.sgender}</td>
+                        <td>${s.sdob}</td>
+                        <td><img src="${s.simg}" alt=""/></td>
+                        <td>${s.saddress}</td>
+
+                    </tr>
+                </tbody>
+
+
+            </c:forEach>
+        </table>
+    </body>
 
 </html>

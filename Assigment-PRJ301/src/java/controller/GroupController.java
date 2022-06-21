@@ -5,6 +5,7 @@
 
 package controller;
 
+import dal.GroupDBContext;
 import dal.StudentDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,33 +13,22 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.awt.AWTEventMulticaster;
 import java.util.ArrayList;
+import model.Group;
 import model.Student;
 
 /**
  *
  * @author ASUS
  */
-public class ListStudentController extends HttpServlet {
+public class GroupController extends HttpServlet {
    
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("gid"));
-        StudentDBContext db = new StudentDBContext();
-        ArrayList  students = db.get(id);
-//        ArrayList<Student> students = db.list();
-        request.setAttribute("students", students);
-        request.getRequestDispatcher("../view/list.jsp").forward(request, response);
-        
-        
-        
+       
+      
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +42,10 @@ public class ListStudentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        GroupDBContext db = new GroupDBContext();
+        ArrayList<Group> groups = db.list();
+        request.setAttribute("groups", groups);
+        request.getRequestDispatcher("view/group.jsp").forward(request, response);
     } 
 
     /** 
@@ -66,7 +59,6 @@ public class ListStudentController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /** 
