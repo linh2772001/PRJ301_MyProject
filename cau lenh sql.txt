@@ -1,0 +1,41 @@
+---------- View Mark---------
+//in ra danh sach mon hoc cua 1 sinh vien
+SELECT Student.sid , Student.sname,Subjects.subname  ,Subjects.subcode 
+FROM     Student INNER JOIN
+                      [Enroll Subjects]   ON [Enroll Subjects].sid = Student.sid INNER JOIN
+                      Subjects ON [Enroll Subjects].subid = Subjects.subid
+					  where  Student.sid = ?
+
+//in ra danh sach diem cua  sinh vien trong mot mon hoc 
+SELECT    s.code, s.sname, sub.subcode , sub.subname, m.lab1, m.lab2, m.ass1, m.ass2, m.pe, m.fe
+FROM         Mark m INNER JOIN
+                      Student s ON m.sid = s.sid INNER JOIN
+                      Subjects sub ON m.subid = sub.subid
+					  where s.sid = 1 and sub.subid = 1
+---------------nhap diem-------------------
+//show ra danh sach cac mon hoc cua giang vien
+SELECT    t.lname, sub.subcode, sub.subname
+FROM         Subjects  sub INNER JOIN
+                      [Teacher Subjects]  ON sub.subid = [Teacher Subjects].subid INNER JOIN
+                      Teacher t ON [Teacher Subjects].lid = t.lid
+					  where t.lid = 2
+//In danh sach lop hoc va  mon hoc ma gv do day
+SELECT    t.lname, g.gname, sub.subcode, sub.subname
+FROM         [Group] g INNER JOIN
+                      [Subject Group] ON g.gid = [Subject Group].gid INNER JOIN
+                      Subjects sub ON [Subject Group].subid = sub.subid INNER JOIN
+                      [Teacher Group] ON g.gid = [Teacher Group].gid INNER JOIN
+                      Teacher t ON [Teacher Group].lid = t.lid
+					  where t.lid = 1 and sub.subid=1
+
+
+//in danh sach diem mon hoc cua sinh vien  ma giang vien do day
+SELECT    s.sname,t.lname, g.gname, sub.subname, m.lab1, m.lab2, m.ass1, m.ass2, m.pe, m.fe
+FROM      [Group] g INNER JOIN
+                      Enroll   ON Enroll.gid = g.gid INNER JOIN
+                      Mark  m ON Enroll.sid = m.sid INNER JOIN
+                      Student  s ON Enroll.sid = s.sid AND m.sid = s.sid INNER JOIN
+                      Subjects sub  ON m.subid = sub.subid INNER JOIN
+                      [Teacher Group] ON g.gid = [Teacher Group].gid INNER JOIN
+                      Teacher t ON [Teacher Group].lid = t.lid
+					  where t.lid=2 and sub.subid=1
