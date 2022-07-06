@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Group {
     private int gid;
     private String gname;
+    private Subjects subjects;
     ArrayList<Student> students = new ArrayList<>();
 
     public int getGid() {
