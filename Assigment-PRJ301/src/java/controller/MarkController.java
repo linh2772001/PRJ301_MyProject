@@ -5,8 +5,7 @@
 
 package controller;
 
-import dal.GroupDBContext;
-import dal.StudentDBContext;
+import dal.MarkDBContext;
 import dal.SubjectDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,23 +13,37 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.awt.AWTEventMulticaster;
 import java.util.ArrayList;
-import model.Group;
-import model.Student;
+import model.Mark;
 import model.Subjects;
 
 /**
  *
  * @author ASUS
  */
-public class GroupController extends HttpServlet {
+public class MarkController extends HttpServlet {
    
-    
+    /** 
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       
-      
+       int sid = Integer.parseInt(request.getParameter("sid"));
+       int subid = Integer.parseInt(request.getParameter("subid"));
+        MarkDBContext db = new MarkDBContext();
+        Mark mark = db.getshow(sid, subid);
+        request.setAttribute("mark", mark);
+        
+        SubjectDBContext dbs = new SubjectDBContext();
+        ArrayList<Subjects> subject = dbs.search(sid) ;
+        request.setAttribute("subject", subject);
+        request.setAttribute("sid", sid);
+        request.getRequestDispatcher("student/Showmark.jsp").forward(request, response);
+        
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -44,21 +57,7 @@ public class GroupController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-          int subid = Integer.parseInt(request.getParameter("id"));
-        SubjectDBContext db = new SubjectDBContext();
-        ArrayList<Subjects> subject = db.list();
-        request.setAttribute("subject", subject); 
-        
-        SubjectDBContext dbco = new SubjectDBContext();
-        ArrayList<Subjects> subjects = dbco.list();
-        request.setAttribute("subjects", subjects);
-        
-        GroupDBContext dbgroup = new GroupDBContext();
-        ArrayList<Group> groups = dbgroup.search(subid);
-
-        request.setAttribute("groups", groups);
-        
-        request.getRequestDispatcher("student/entermark.jsp").forward(request, response);
+        processRequest(request, response);
     } 
 
     /** 

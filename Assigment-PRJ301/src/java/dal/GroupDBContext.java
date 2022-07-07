@@ -11,12 +11,41 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Group;
+import model.Subjects;
 
 /**
  *
  * @author ASUS
  */
 public class GroupDBContext extends DBContext<Group>{
+    
+    public ArrayList<Group> search(int subid) {
+        ArrayList<Group> group = new ArrayList<>();
+        try {
+            String sql = "SELECT *\n" +
+"                    FROM   [Group] INNER JOIN\n" +
+"                               [Subject Group] ON [Group].gid = [Subject Group].gid INNER JOIN\n" +
+"                               Subjects ON [Subject Group].subid = Subjects.subid\n" +
+"                    		 where Subjects.subid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, subid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Group g = new Group();
+                g.setGid(rs.getInt("gid"));
+                g.setGname(rs.getString("gname"));              
+                Subjects s = new Subjects();
+                s.setSubid(rs.getInt("subid"));
+                s.setSubname(rs.getString("subname"));
+                s.setSubcode(rs.getString("subcode"));
+                g.setSubjects(s);
+                group.add(g);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return group;
+    }
 
     @Override
     public ArrayList<Group> list() {

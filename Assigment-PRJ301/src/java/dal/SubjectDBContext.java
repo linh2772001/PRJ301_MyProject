@@ -42,7 +42,7 @@ public class SubjectDBContext extends DBContext<Subjects> {
         return sub;
     }
 
-    public ArrayList<Subjects> listSuj(int sid) {
+    public ArrayList<Subjects> search(int sid) {
         ArrayList<Subjects> sub = new ArrayList<>();
         try {
             String sql = "SELECT Student.sid , Student.sname,Subjects.subname  ,Subjects.subcode ,Subjects.subid\n"
@@ -105,7 +105,7 @@ public class SubjectDBContext extends DBContext<Subjects> {
 
     public static void main(String[] args) {
         SubjectDBContext db = new SubjectDBContext();
-        ArrayList<Subjects> search = db.listSuj(4);
+        ArrayList<Subjects> search = db.search(4);
         System.out.println("" + search);
         ArrayList<Subjects> list = db.list();
         System.out.println("" + list);
