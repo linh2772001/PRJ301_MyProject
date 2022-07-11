@@ -12,6 +12,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import model.Account;
 
@@ -32,9 +33,9 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        AccountDBContext db = new AccountDBContext();
-        ArrayList<Account> acc = db.list();
-        request.setAttribute("acc", acc);
+//        AccountDBContext db = new AccountDBContext();
+//        ArrayList<Account> acc = db.list();
+//        request.setAttribute("acc", acc);
         request.getRequestDispatcher("view/login.jsp").forward(request, response);
     } 
 
@@ -48,25 +49,23 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String usename = request.getParameter("usename");
+       String username = request.getParameter("username");
         String password = request.getParameter("password");
+
         AccountDBContext db = new AccountDBContext();
-        Account acc = db.getT(usename, password);        
-        if(acc == null)
-            response.getWriter().println("Login failed");
-        else {
-           
-            response.getWriter().println("Login succesfull");
+        Account account = db.getT(username, password);
+        
+        if (account == null) {
+            request.getSession().setAttribute("account", null);
+            request.setAttribute("mes", "Login fail");
+            request.getRequestDispatcher("view/login.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("account", account);
+            request.getSession().setAttribute("account", account);
+            request.setAttribute("name", account.getDisplayname());
+            response.sendRedirect("index.html");
         }
     }
-
-    /** 
-     * Returns a short description of the servlet.
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

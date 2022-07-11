@@ -12,6 +12,16 @@ public class Account {
     
     private String usename;
     private String password ;
+    private String displayname ;
+
+    public String getDisplayname() {
+        return displayname;
+    }
+
+    public void setDisplayname(String displayname) {
+        this.displayname = displayname;
+    }
+    
 
     public String getUsename() {
         return usename;

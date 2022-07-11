@@ -62,7 +62,7 @@ public class AccountDBContext extends DBContext<Account>{
     @Override
     public Account getT(String usename, String password) {
         try {
-            String sql = "select usename, password from Account where usename = ? and password = ?";
+            String sql = "select usename, password ,displayname from Account where usename = ? and password = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, usename);
             stm.setString(2, password);
@@ -71,6 +71,7 @@ public class AccountDBContext extends DBContext<Account>{
                 Account a = new Account();
                 a.setUsename(rs.getString("usename"));
                 a.setPassword(rs.getString("password"));
+                a.setDisplayname(rs.getString("displayname"));
                 return a;
             }
         } catch (SQLException ex) {
