@@ -233,8 +233,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                             </tr>
 
                                             <tr>
-                                                <td>Progress test 3</td>
-                                                <td>10.0 %</td>
+<!--                                                <td>Progress test 3</td>
+                                                <td>10.0 %</td>-->
                                                 <td></td>
                                                 <td></td>
                                             </tr>

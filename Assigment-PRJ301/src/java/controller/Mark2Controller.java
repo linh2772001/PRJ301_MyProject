@@ -56,12 +56,12 @@ public class Mark2Controller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int sid = Integer.parseInt(request.getParameter("sid"));
+        int sid = 1;//Integer.parseInt(request.getParameter("sid"));
         SubjectDBContext db = new SubjectDBContext();
         ArrayList<Subjects> subject = db.search(sid);
         request.setAttribute("subject", subject);
         request.setAttribute("sid", sid);
-        request.getRequestDispatcher("view_students/mark.jsp").forward(request, response);
+        request.getRequestDispatcher("student/Showmark.jsp").forward(request, response);
     } 
 
     
