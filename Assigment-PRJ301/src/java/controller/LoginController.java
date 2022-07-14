@@ -49,7 +49,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       String username = request.getParameter("username");
+       String username = request.getParameter("usename");
         String password = request.getParameter("password");
 
         AccountDBContext db = new AccountDBContext();
@@ -57,14 +57,14 @@ public class LoginController extends HttpServlet {
         
         if (account == null) {
             request.getSession().setAttribute("account", null);
-            request.setAttribute("mes", "Login fail");
+            request.setAttribute("msg", "Wrong username or password.");
             request.getRequestDispatcher("view/login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
             request.getSession().setAttribute("account", account);
             request.setAttribute("name", account.getDisplayname());
-            response.sendRedirect("index.html");
+            response.sendRedirect("home.jsp");
         }
     }
 

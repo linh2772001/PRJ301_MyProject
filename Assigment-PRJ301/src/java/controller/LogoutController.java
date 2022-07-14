@@ -5,21 +5,19 @@
 
 package controller;
 
-import dal.StudentDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import model.Student;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
  * @author ASUS
  */
-public class ListStudentController extends HttpServlet {
+public class LogoutController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,15 +28,12 @@ public class ListStudentController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-//        int id = Integer.parseInt(request.getParameter("gid"));
-//        StudentDBContext db = new StudentDBContext();
-//        ArrayList  students = db.get(id);
-////        ArrayList<Student> students = db.list();
-//        request.setAttribute("students", students);
-//        request.getRequestDispatcher("../view/list.jsp").forward(request, response);
-        
-        
-        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession();
+            session.removeAttribute("account");
+            response.sendRedirect("home.jsp");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,13 +47,7 @@ public class ListStudentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("gid"));
-        StudentDBContext db = new StudentDBContext();
-        ArrayList  students = db.get(id);
-//        ArrayList<Student> students = db.list();
-        request.setAttribute("students", students);
-        request.getRequestDispatcher("../view/list.jsp").forward(request, response);
-        
+        processRequest(request, response);
     } 
 
     /** 
@@ -72,7 +61,6 @@ public class ListStudentController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /** 

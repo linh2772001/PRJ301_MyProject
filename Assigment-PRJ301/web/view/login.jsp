@@ -24,13 +24,20 @@
                 <form class="login-form" action="login" method="POST">
                     <input type="text" name=usename placeholder="username"/>
                     <input type="password" name="password" placeholder="password"/>
+                    
                     <button>login</button>
                     <p class="message">Not registered? <a href="#">Create an account</a></p>
                 </form>
+                <div class="linh">
+                    <p class="text-danger">${msg}</p>
+                </div>
             </div>
         </div>
     </body>
  <style>
+     .linh{
+         color: red;
+     }
         body{
             background-color: #F6A7C1;
         }

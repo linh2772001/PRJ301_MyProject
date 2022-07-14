@@ -41,715 +41,722 @@
             <div class="container">
                 <div class="masthead-subheading"></div>
                 <div class="masthead-heading text-uppercase"></div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="login">Login Student</a>
-                <a class="btn btn-primary btn-xl text-uppercase" href="login">Login Teacher </a>
-            </div>
-        </header>
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">E-Commerce</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                
+                <c:if test="${sessionScope.acc == null}">
+                    <a class="btn btn-primary btn-xl text-uppercase" href="login">Login Student</a>
+                    <a class="btn btn-primary btn-xl text-uppercase" href="login">Login Teacher </a>
+                </c:if>
+                <c:if test="${sessionScope.acc != null}">
+                    <div class="">
+                        <p>
+                            <a href="view/information.jsp">Information</a>
                     </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Portfolio Grid-->
-        <section class="page-section bg-light" id="portfolio">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Ngành Học </h2>
-                    <!--   <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 1-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    </header>
+                    <!-- Services-->
+                    <section class="page-section" id="services">
+                        <div class="container">
+                            <div class="text-center">
+                                <h2 class="section-heading text-uppercase">Services</h2>
+                                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <span class="fa-stack fa-4x">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <h4 class="my-3">E-Commerce</h4>
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/11.png" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Công Nghệ Thông Tin</div>
-                                <div class="portfolio-caption-subheading text-muted">Technology Engineer</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 2-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="col-md-4">
+                                    <span class="fa-stack fa-4x">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <h4 class="my-3">Responsive Design</h4>
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/22.png" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Thiết Kế Đồ Họa</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 3-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="col-md-4">
+                                    <span class="fa-stack fa-4x">
+                                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                                        <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    <h4 class="my-3">Web Security</h4>
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/33.png" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Ngôn Ngữ Anh</div>
-                                <div class="portfolio-caption-subheading text-muted">English Language</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <!-- Portfolio item 4-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    </section>
+                    <!-- Portfolio Grid-->
+                    <section class="page-section bg-light" id="portfolio">
+                        <div class="container">
+                            <div class="text-center">
+                                <h2 class="section-heading text-uppercase">Ngành Học </h2>
+                                <!--   <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-6 mb-4">
+                                    <!-- Portfolio item 1-->
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                            <div class="portfolio-hover">
+                                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid" src="assets/img/portfolio/11.png" alt="..." />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">Công Nghệ Thông Tin</div>
+                                            <div class="portfolio-caption-subheading text-muted">Technology Engineer</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/44.png" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Ngôn Ngữ Nhật</div>
-                                <div class="portfolio-caption-subheading text-muted">Japanese</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <!-- Portfolio item 5-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="col-lg-4 col-sm-6 mb-4">
+                                    <!-- Portfolio item 2-->
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                            <div class="portfolio-hover">
+                                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid" src="assets/img/portfolio/22.png" alt="..." />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">Thiết Kế Đồ Họa</div>
+                                            <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/55.png" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Ngôn Ngữ Hàn</div>
-                                <div class="portfolio-caption-subheading text-muted">Korean Language</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <!-- Portfolio item 6-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="col-lg-4 col-sm-6 mb-4">
+                                    <!-- Portfolio item 3-->
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                            <div class="portfolio-hover">
+                                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid" src="assets/img/portfolio/33.png" alt="..." />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">Ngôn Ngữ Anh</div>
+                                            <div class="portfolio-caption-subheading text-muted">English Language</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/66.png" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Quản Trị Kinh Doanh</div>
-                                <div class="portfolio-caption-subheading text-muted">Business Administration</div>
+                                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                                    <!-- Portfolio item 4-->
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                            <div class="portfolio-hover">
+                                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid" src="assets/img/portfolio/44.png" alt="..." />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">Ngôn Ngữ Nhật</div>
+                                            <div class="portfolio-caption-subheading text-muted">Japanese</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                                    <!-- Portfolio item 5-->
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                            <div class="portfolio-hover">
+                                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid" src="assets/img/portfolio/55.png" alt="..." />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">Ngôn Ngữ Hàn</div>
+                                            <div class="portfolio-caption-subheading text-muted">Korean Language</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6">
+                                    <!-- Portfolio item 6-->
+                                    <div class="portfolio-item">
+                                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                            <div class="portfolio-hover">
+                                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                            </div>
+                                            <img class="img-fluid" src="assets/img/portfolio/66.png" alt="..." />
+                                        </a>
+                                        <div class="portfolio-caption">
+                                            <div class="portfolio-caption-heading">Quản Trị Kinh Doanh</div>
+                                            <div class="portfolio-caption-subheading text-muted">Business Administration</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- About-->
-        <section class="page-section" id="about">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Giới Thiệu Về Trường</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-               
-                <ul class="timeline">
-                    <li><div class="row">
-                         
-                        <div class="timeline-image "><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
-                        <div class="timeline-panel" >
-                            
-                        
-                        
-                            <div class="timeline-heading" >
-                                <h4>Lịch Sử Thành Lập</h4>
-                                <h4 class="subheading">Đại Học FPT</h4>
+                    </section>
+                    <!-- About-->
+                    <section class="page-section" id="about">
+                        <div class="container">
+                            <div class="text-center">
+                                <h2 class="section-heading text-uppercase">Giới Thiệu Về Trường</h2>
+                                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                             </div>
-                            <div class="timeline-body "><p class="text-muted">Đại học FPT được thành lập ngày 8/9/2006 theo Quyết định số 208/2006/QĐ-TTg của Thủ tướng Chính phủ và hoạt động theo Quy chế tổ chức và hoạt động của Trường Đại học tư thục theo Quyết định số 61/2009/QĐ-TTg ban hành ngày 17/4/2009 của Chính phủ.
 
-                                    Sứ mệnh của Đại học FPT là đào tạo nguồn nhân lực chất lượng cao trong giai đoạn hội nhập, cung cấp năng lực cạnh tranh toàn cầu cho người học, góp phần mở mang bờ cõi trí tuệ đất nước. Khác biệt trong phương pháp đào tạo của Đại học FPT là gắn kết chặt chẽ với các doanh nghiệp, đào tạo theo chương trình chuẩn công nghệ quốc tế, thành thạo hai ngoại ngữ, rèn luyện kỹ năng mềm, chú trọng phát triển con người toàn diện, hài hòa.
+                            <ul class="timeline">
+                                <li><div class="row">
 
-                                    Mục tiêu trước mắt của Trường Đại học FPT là đào tạo và cung cấp nguồn nhân lực chất lượng cao chuyên ngành CNTT, Kinh tế, Mỹ thuật và các nhóm ngành khác cho các doanh nghiệp trong nước cũng như các tập đoàn thế giới.
+                                        <div class="timeline-image "><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
+                                        <div class="timeline-panel" >
 
-                                    98% sinh viên ra trường có việc làm với mức lương trung bình là 8,3 triệu đồng; 19% cựu sinh viên làm việc tại nước ngoài; 100% sinh viên có cơ hội làm việc tại Tập đoàn FPT.</p></div>
+
+
+                                            <div class="timeline-heading" >
+                                                <h4>Lịch Sử Thành Lập</h4>
+                                                <h4 class="subheading">Đại Học FPT</h4>
+                                            </div>
+                                            <div class="timeline-body "><p class="text-muted">Đại học FPT được thành lập ngày 8/9/2006 theo Quyết định số 208/2006/QĐ-TTg của Thủ tướng Chính phủ và hoạt động theo Quy chế tổ chức và hoạt động của Trường Đại học tư thục theo Quyết định số 61/2009/QĐ-TTg ban hành ngày 17/4/2009 của Chính phủ.
+
+                                                    Sứ mệnh của Đại học FPT là đào tạo nguồn nhân lực chất lượng cao trong giai đoạn hội nhập, cung cấp năng lực cạnh tranh toàn cầu cho người học, góp phần mở mang bờ cõi trí tuệ đất nước. Khác biệt trong phương pháp đào tạo của Đại học FPT là gắn kết chặt chẽ với các doanh nghiệp, đào tạo theo chương trình chuẩn công nghệ quốc tế, thành thạo hai ngoại ngữ, rèn luyện kỹ năng mềm, chú trọng phát triển con người toàn diện, hài hòa.
+
+                                                    Mục tiêu trước mắt của Trường Đại học FPT là đào tạo và cung cấp nguồn nhân lực chất lượng cao chuyên ngành CNTT, Kinh tế, Mỹ thuật và các nhóm ngành khác cho các doanh nghiệp trong nước cũng như các tập đoàn thế giới.
+
+                                                    98% sinh viên ra trường có việc làm với mức lương trung bình là 8,3 triệu đồng; 19% cựu sinh viên làm việc tại nước ngoài; 100% sinh viên có cơ hội làm việc tại Tập đoàn FPT.</p></div>
+                                        </div>
+                                    </div>  </li>
+                                <li class="timeline-inverted">
+                                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>Nơi Đào Tạo</h4>
+                                            <h4 class="subheading">An Agency is Born</h4>
+                                        </div>
+                                        <div class="timeline-body"><p class="text-muted">Đại học FPT là nơi đào tạo và cung cấp nguồn nhân lực chất lượng cao, theo chuẩn quốc tế. Trường đang đào tạo các khối ngành Công nghệ thông tin, Kinh tế, Ngôn Ngữ, Mỹ thuật ứng dụng.Khuôn viên rộng với nhiều cây xanh thoáng mát giúp Đại học FPT trở nên sinh động, tự nhiên và trong lành hơn. Những tòa nhà lớn để sinh viên học tập và làm việc hiệu quả hơn ..</p></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4> Các Giải Thưởng Và Thành Tích </h4>
+                                            <h4 class="subheading">Transition to Full Service</h4>
+                                        </div>
+                                        <div class="timeline-body"><p class="text-muted">Xếp hạng QS là một điều kiện để khẳng định vị thế và danh tiếng, đồng thời góp phần không nhỏ nâng cao giá trị bằng cấp của sinh viên đã và đang theo học tại trường. Trong 5 năm tới, Đại học FPT tin tưởng sẽ chinh phục được đích Năm Sao theo chuẩn QS Stars và lọt Top 100 trường đại học tốt nhất châu Á.
+
+                                                Trong khuôn khổ Hội nghị Thượng đỉnh Số ASOCIO 2018 vào ngày 7-8/11/2018, Hội đồng giải thưởng ASOCIO 2018 đã quyết định trao giải cho Đại học FPT tại hạng mục Đơn vị Đào tạo Công nghệ thông tin xuất sắc .
+
+                                                Năm 2018, sánh vai cùng nhiều thương hiệu tên tuổi, Đại học FPT được vinh danh tại hạng mục Best Brands in Education Tertiary – Trường Đại học xuất sắc trong khối Đại học và Tổ chức Giáo dục FPT được xướng tên tại hạng mục Excellence in Education – Thương hiệu tổ chức giáo dục xuất sắc.
+
+                                                ACBSP là Hội đồng Kiểm định các trường và chương trình đào tạo về kinh doanh. Đây là một trong những tổ chức kiểm định quốc tế chuyên ngành kinh doanh có giá trị và uy tín trên thế giới. Kết quả này là minh chứng khách quan thể hiện rõ chất lượng đào tạo của Trường Đại học FPT Đồng thời thúc đẩy Khối ngành Quản trị kinh doanh liên tục cải tiến nhằm đảm bảo chất lượng cho các chương trình đào tạo của trường phù hợp và tương đồng với các trường kinh doanh hàng đầu trên thế giới, mang lại cho sinh viên nhiều cơ hội học hỏi, sáng tạo và phát triển tương lai nghề nghiệp.
+
+                                                Được tổ chức xếp hạng các trường kinh doanh uy tín trên thế giới – Eduniversal , xếp hạng là một trong ba trường đào tạo Quản trị kinh doanh tốt nhất Việt Nam 2 năm liên tiếp . Được xếp hạng 2 Palmes trong bảng xếp hạng 1.000 trường kinh doanh tốt nhất thế giới của Eduniversal, dành cho những trường Kinh doanh tốt có tầm ảnh hưởng trong khu vực.
+
+                                                Kỳ thi ACM/ICPC là cuộc thi lập trình quốc tế lâu đời và danh giá nhất dành cho sinh viên các trường cao đẳng trên toàn cầu, là nơi những nước mạnh nhất về CNTT đều có đội tuyển tham dự và cạnh tranh quyết liệt. Năm 2015, đội tuyển Đại học FPT đạt giải Nhì tại đấu trường ACM/ICPC Asia Hà Nội 2015.
+                                            </p></div>
+                                    </div>
+                                </li>
+                                <li class="timeline-inverted">
+                                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4>Gắn Kết Cộng Đồng</h4>
+                                            <h4 class="subheading">Phase Two Expansion</h4>
+                                        </div>
+                                        <div class="timeline-body"><p class="text-muted">Với mục tiêu xây dựng một môi trường giáo dục có nền văn hóa giàu trách nhiệm và lòng nhân ái, những năm qua, các hoạt động Trách nhiệm xã hội luôn được Đại học FPT tập trung triển khai và nhân rộng trên toàn hệ thống. Như tất cả các đơn vị thành viên của Tập đoàn FPT, ngày 13 hằng tháng đã trở thành ngày truyền thống làm thiện nguyện của Đại học FPT. Theo đó, cán bộ, giảng viên, học sinh, sinh viên trong toàn hệ thống hưởng ứng lời kêu gọi nhịn một bữa ăn sáng và quyên góp số tiền bữa sáng đó vào Quỹ Tiết thực của Trường. Lê Trường Tùng – Chủ tịch HĐQT Trường Đại học FPT chính thức phát động Dự án 100 Tủ sách Tiết thực, thực hiện tại các địa phương nghèo trên toàn Việt Nam.
+
+                                                Trường Đại học FPT cũng thể hiện rõ ý thức và cam kết về trách nhiệm xã hội của mình khi xây dựng Quỹ học bổng mang tên Giáo sư Viện sỹ Nguyễn Văn Đạo. Học bổng nhằm mang đến điều kiện học tập tốt nhất cho những sinh viên có hoàn cảnh gia đình khó khăn và những cá nhân trẻ xuất sắc trên các lĩnh vực học tập và văn-thể-mỹ. Mỗi năm, Trường Đại học FPT dành khoảng 200 suất học bổng, với tổng trị giá lên tới gần 40 tỷ đồng.</p></div>
+                                    </div>
+                                </li>
+                                <li class="timeline-inverted">
+                                    <div class="timeline-image">
+                                        <h4>
+                                            Be Part
+                                            <br />
+                                            Of Our
+                                            <br />
+                                            Story!
+                                        </h4>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                  </div>  </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>Nơi Đào Tạo</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
+                    </section>
+                    <!-- Team-->
+                    <section class="page-section bg-light" id="team">
+                        <div class="container">
+                            <div class="text-center">
+                                <h2 class="section-heading text-uppercase">Giảng Viên Giảng Dạy</h2>
+                                <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Đại học FPT là nơi đào tạo và cung cấp nguồn nhân lực chất lượng cao, theo chuẩn quốc tế. Trường đang đào tạo các khối ngành Công nghệ thông tin, Kinh tế, Ngôn Ngữ, Mỹ thuật ứng dụng.Khuôn viên rộng với nhiều cây xanh thoáng mát giúp Đại học FPT trở nên sinh động, tự nhiên và trong lành hơn. Những tòa nhà lớn để sinh viên học tập và làm việc hiệu quả hơn ..</p></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4> Các Giải Thưởng Và Thành Tích </h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="team-member">
+                                        <img class="mx-auto rounded-circle" src="assets/img/team/hinh-avatar-nam-deo-kinh.jpg" alt="..." />
+                                        <h4>Thầy Lyndon Britanico Badong</h4>
+                                        <p class="text-muted">Giảng viên bộ môn Tiếng Anh</p>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="team-member">
+                                        <img class="mx-auto rounded-circle" src="assets/img/team/AVT-Chibi-38.jpg" alt="..." />
+                                        <h4>Cô Kuriko Shinozaki</h4>
+                                        <p class="text-muted">Giảng Viên Ngôn Ngữ Ngành Tiếng nhật </p>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="team-member">
+                                        <img class="mx-auto rounded-circle" src="assets/img/team/imager_4_17028_700.jpg" alt="..." />
+                                        <h4>Thầy Ngô Tùng Sơn</h4>
+                                        <p class="text-muted">Giảng Viên Ngành Kỹ Thuật Phần Mềm</p>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="timeline-body"><p class="text-muted">Xếp hạng QS là một điều kiện để khẳng định vị thế và danh tiếng, đồng thời góp phần không nhỏ nâng cao giá trị bằng cấp của sinh viên đã và đang theo học tại trường. Trong 5 năm tới, Đại học FPT tin tưởng sẽ chinh phục được đích Năm Sao theo chuẩn QS Stars và lọt Top 100 trường đại học tốt nhất châu Á.
-
-                                    Trong khuôn khổ Hội nghị Thượng đỉnh Số ASOCIO 2018 vào ngày 7-8/11/2018, Hội đồng giải thưởng ASOCIO 2018 đã quyết định trao giải cho Đại học FPT tại hạng mục Đơn vị Đào tạo Công nghệ thông tin xuất sắc .
-
-                                    Năm 2018, sánh vai cùng nhiều thương hiệu tên tuổi, Đại học FPT được vinh danh tại hạng mục Best Brands in Education Tertiary – Trường Đại học xuất sắc trong khối Đại học và Tổ chức Giáo dục FPT được xướng tên tại hạng mục Excellence in Education – Thương hiệu tổ chức giáo dục xuất sắc.
-
-                                    ACBSP là Hội đồng Kiểm định các trường và chương trình đào tạo về kinh doanh. Đây là một trong những tổ chức kiểm định quốc tế chuyên ngành kinh doanh có giá trị và uy tín trên thế giới. Kết quả này là minh chứng khách quan thể hiện rõ chất lượng đào tạo của Trường Đại học FPT Đồng thời thúc đẩy Khối ngành Quản trị kinh doanh liên tục cải tiến nhằm đảm bảo chất lượng cho các chương trình đào tạo của trường phù hợp và tương đồng với các trường kinh doanh hàng đầu trên thế giới, mang lại cho sinh viên nhiều cơ hội học hỏi, sáng tạo và phát triển tương lai nghề nghiệp.
-
-                                    Được tổ chức xếp hạng các trường kinh doanh uy tín trên thế giới – Eduniversal , xếp hạng là một trong ba trường đào tạo Quản trị kinh doanh tốt nhất Việt Nam 2 năm liên tiếp . Được xếp hạng 2 Palmes trong bảng xếp hạng 1.000 trường kinh doanh tốt nhất thế giới của Eduniversal, dành cho những trường Kinh doanh tốt có tầm ảnh hưởng trong khu vực.
-
-                                    Kỳ thi ACM/ICPC là cuộc thi lập trình quốc tế lâu đời và danh giá nhất dành cho sinh viên các trường cao đẳng trên toàn cầu, là nơi những nước mạnh nhất về CNTT đều có đội tuyển tham dự và cạnh tranh quyết liệt. Năm 2015, đội tuyển Đại học FPT đạt giải Nhì tại đấu trường ACM/ICPC Asia Hà Nội 2015.
-                                </p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>Gắn Kết Cộng Đồng</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Với mục tiêu xây dựng một môi trường giáo dục có nền văn hóa giàu trách nhiệm và lòng nhân ái, những năm qua, các hoạt động Trách nhiệm xã hội luôn được Đại học FPT tập trung triển khai và nhân rộng trên toàn hệ thống. Như tất cả các đơn vị thành viên của Tập đoàn FPT, ngày 13 hằng tháng đã trở thành ngày truyền thống làm thiện nguyện của Đại học FPT. Theo đó, cán bộ, giảng viên, học sinh, sinh viên trong toàn hệ thống hưởng ứng lời kêu gọi nhịn một bữa ăn sáng và quyên góp số tiền bữa sáng đó vào Quỹ Tiết thực của Trường. Lê Trường Tùng – Chủ tịch HĐQT Trường Đại học FPT chính thức phát động Dự án 100 Tủ sách Tiết thực, thực hiện tại các địa phương nghèo trên toàn Việt Nam.
-
-                                    Trường Đại học FPT cũng thể hiện rõ ý thức và cam kết về trách nhiệm xã hội của mình khi xây dựng Quỹ học bổng mang tên Giáo sư Viện sỹ Nguyễn Văn Đạo. Học bổng nhằm mang đến điều kiện học tập tốt nhất cho những sinh viên có hoàn cảnh gia đình khó khăn và những cá nhân trẻ xuất sắc trên các lĩnh vực học tập và văn-thể-mỹ. Mỗi năm, Trường Đại học FPT dành khoảng 200 suất học bổng, với tổng trị giá lên tới gần 40 tỷ đồng.</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>
-                                Be Part
-                                <br />
-                                Of Our
-                                <br />
-                                Story!
-                            </h4>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- Team-->
-        <section class="page-section bg-light" id="team">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Giảng Viên Giảng Dạy</h2>
-                   <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/hinh-avatar-nam-deo-kinh.jpg" alt="..." />
-                            <h4>Thầy Lyndon Britanico Badong</h4>
-                            <p class="text-muted">Giảng viên bộ môn Tiếng Anh</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/AVT-Chibi-38.jpg" alt="..." />
-                            <h4>Cô Kuriko Shinozaki</h4>
-                            <p class="text-muted">Giảng Viên Ngôn Ngữ Ngành Tiếng nhật </p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/imager_4_17028_700.jpg" alt="..." />
-                            <h4>Thầy Ngô Tùng Sơn</h4>
-                            <p class="text-muted">Giảng Viên Ngành Kỹ Thuật Phần Mềm</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
-                </div>
-            </div>
-        </section>
-        <!-- Clients-->
-        <div class="py-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg" alt="..." aria-label="Microsoft Logo" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg" alt="..." aria-label="IBM Logo" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-   
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Address</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">Khu Giáo dục và Đào tạo – Khu Công nghệ cao Hòa Lạc – Km29 Đại lộ Thăng Long, H. Thạch Thất, TP. Hà Nội</div>
+                            <div class="row">
+                                <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Email</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">dichvusinhvien@fe.edu.vn</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">(024)7308.13.13</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio item 1 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Công Nghệ Thông Tin</h2>
-
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/11111-cr-1200x630.jpg" alt="..." /> 
-                                    <div class="text-nganhhoc">
-                                        <h2 class="item-intro text-muted">Tổng Quan Về Công Nghệ Thông : </h2>
-                                        <p>Công nghệ thông tin (CNTT) đã được Đảng và Chính phủ xác định là hạ tầng của hạ tầng. Từ nay đến năm 2020, Việt Nam cần đến một triệu lao động ngành CNTT trong khi năng lực của hệ thống giáo dục quốc dân chưa đáp ứng đủ về lượng và chất như yêu cầu của các nhà tuyển dụng.
-
-                                            Tại Trường Đại học FPT, ngành CNTT là ngành học có tiếng và lâu đời nhất. Chương trình được thiết kế dựa trên tham khảo gợi ý chương trình của Hiệp hội máy tính (Association for Computing Machinery-ACM), các trường hàng đầu của Mỹ và các chuyên gia phần mềm trong các tổ chức và doanh nghiệp CNTT như Hiệp hội phần mềm Việt Nam (VINASA), FPT, Chương trình đào tạo của EC-Council, Học viện mạng và phần cứng Jetking (Ấn Độ); các trường Đào tạo Nghệ thuật trên thế giới, các Hiệp hội về Đào tạo nghệ thuật và thiết kế (National Association of Schools of Art and Design – NASAD).
-
-                                            Sinh viên được học với những giảng viên giàu kinh nghiệm, trong đó có nhiều giảng viên là các tiến sỹ, giáo sư, chuyên gia đến từ các doanh nghiệp hàng đầu trong lĩnh vực CNTT.
-
-                                            Chương trình ngành CNTT được thiết kế gồm 4 khối kiến thức: Kiến thức chung, kiến thức ngành, chuyên ngành và lựa chọn. Chương trình được thiết kế tích hợp, cân bằng giữa kiến thức nền tảng với công nghệ, kỹ thuật mới và chú trọng đến kỹ năng thực hành và năng lực ứng dụng, sáng tạo. Các học phần được gợi ý theo một tiến độ hợp lý để sinh viên lựa chọn nhằm thúc đẩy hứng thú học tập của sinh viên ngay từ học kỳ đầu tiên.
-
-                                            Kiến thức chung: Bao gồm các nội dung về lý luận chính trị, pháp luật, kỹ năng công dân thế kỷ 21, ngoại ngữ, giáo dục thể chất và quốc phòng.
-
-                                            Kiến thức ngành: Được thiết kế tích hợp cân bằng giữa kiến thức nền tảng với công nghệ và kỹ thuật mới, bao gồm các kiến thức từ nền tảng toán học, kiến thức khoa học cơ bản của nhóm ngành CNTT và máy tính như ngôn ngữ lập trình, giải thuật, dữ liệu, hệ điều hành, mạng máy tính, quy trình phá triển phần mềm, quản trị dự án CNTT… tới các công nghệ mới như IOT, trí tuệ nhân tạo. Với chuyên ngành Thiết kế đồ họa, khối kiến thức ngành gồm các học phần nền tảng về mỹ thuật, thiết kế và nền tảng ứng dụng của CNTT trong thiết kế đồ họa.
-
-                                            Kiến thức chuyên ngành: Sinh viên ngành CNTT có cơ hội lựa chọn một trong sáu hướng chuyên ngành gồm Kỹ thuật phần mềm, Hệ thống thông tin, An toàn thông tin, Trí tuệ nhân tạo, IOT, Thiết kế đồ họa.
-
-                                            Khối kiến thức lựa chọn tự do: Được thiết kế xen kẽ để sinh viên có cơ hội lựa chọn các học phần ưa thích, mở rộng sang lĩnh vực khác hoặc nâng cao hơn so với chuyên ngành đã học. Sinh viên có thể học từ học phần riêng lẻ hoặc cả nhóm học phần về một hướng kỹ thuật, công nghệ mới như Blockchain, FinTech, Automative, Data Science,… Đây là các học phần tăng tính chủ động và cá nhân hóa cho từng sinh viên.</p>
-                                        <h2>Thời gian học tập ngành công nghệ thông tin</h2>
-                                        <P>Chương trình gồm 9 học kỳ chuyên ngành trong đó có 1 học kỳ học tập tại doanh nghiệp (OJT), chưa kể thời gian rèn luyện tập trung và thời gian học tiếng Anh dự bị (phụ thuộc vào trình độ tiếng Anh đầu vào của sinh viên)
-
-                                            Chương trình CNTT được phân chia làm 4 giai đoạn: giai đoạn chuẩn bị (hời gian rèn luyện tập trung + thời gian học tiếng Anh dự bị phụ thuộc trình độ tiếng Anh đầu vào của sinh viên), giai đoạn căn bản (5 học kỳ), giai đoạn học tập thực tế tại doanh nghiệp (OJT, 1 học kỳ) và giai đoạn hoàn thành tốt nghiệp (3 học kỳ cuối).</P>
-                                        <h2>Yêu cầu đầu vào</h2>
-                                        <P>Tốt nghiệp PTTH (hoặc tương đương), đạt quy định trúng tuyển đại học của Bộ GDĐT và đủ điều kiện xét tuyển của trường Đại học FPT.
-
-                                            Tiếng Anh đạt mức Summit 2 (hoặc tương đương)</P>
-                                        <h2>Cấu trúc chương trình</h2>
-
-                                        <img src="assets/img/portfolio/congnghethongtin.jpg" alt="..."  /></div>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Threads
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Illustration
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
+                    </section>
+                    <!-- Clients-->
+                    <div class="py-5">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-3 col-sm-6 my-3">
+                                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg" alt="..." aria-label="Microsoft Logo" /></a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 my-3">
+                                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 my-3">
+                                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 my-3">
+                                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg" alt="..." aria-label="IBM Logo" /></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 2 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/222.1.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Explore
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Graphic Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
+                    <!-- Contact-->
+                    <section class="page-section" id="contact">
+
+                        <div class="container px-4 px-lg-5">
+                            <div class="row gx-4 gx-lg-5">
+                                <div class="col-md-4 mb-3 mb-md-0">
+                                    <div class="card py-4 h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                            <h4 class="text-uppercase m-0">Address</h4>
+                                            <hr class="my-4 mx-auto" />
+                                            <div class="small text-black-50">Khu Giáo dục và Đào tạo – Khu Công nghệ cao Hòa Lạc – Km29 Đại lộ Thăng Long, H. Thạch Thất, TP. Hà Nội</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3 mb-md-0">
+                                    <div class="card py-4 h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-envelope text-primary mb-2"></i>
+                                            <h4 class="text-uppercase m-0">Email</h4>
+                                            <hr class="my-4 mx-auto" />
+                                            <div class="small text-black-50">dichvusinhvien@fe.edu.vn</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3 mb-md-0">
+                                    <div class="card py-4 h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                            <h4 class="text-uppercase m-0">Phone</h4>
+                                            <hr class="my-4 mx-auto" />
+                                            <div class="small text-black-50">(024)7308.13.13</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="social d-flex justify-content-center">
+                                <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                                <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                                <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Footer-->
+                    <footer class="footer py-4">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
+                                <div class="col-lg-4 my-3 my-lg-0">
+                                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <div class="col-lg-4 text-lg-end">
+                                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- Portfolio Modals-->
+                    <!-- Portfolio item 1 modal popup-->
+                    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <div class="modal-body">
+                                                <!-- Project details-->
+                                                <h2 class="text-uppercase">Công Nghệ Thông Tin</h2>
+
+                                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/11111-cr-1200x630.jpg" alt="..." /> 
+                                                <div class="text-nganhhoc">
+                                                    <h2 class="item-intro text-muted">Tổng Quan Về Công Nghệ Thông : </h2>
+                                                    <p>Công nghệ thông tin (CNTT) đã được Đảng và Chính phủ xác định là hạ tầng của hạ tầng. Từ nay đến năm 2020, Việt Nam cần đến một triệu lao động ngành CNTT trong khi năng lực của hệ thống giáo dục quốc dân chưa đáp ứng đủ về lượng và chất như yêu cầu của các nhà tuyển dụng.
+
+                                                        Tại Trường Đại học FPT, ngành CNTT là ngành học có tiếng và lâu đời nhất. Chương trình được thiết kế dựa trên tham khảo gợi ý chương trình của Hiệp hội máy tính (Association for Computing Machinery-ACM), các trường hàng đầu của Mỹ và các chuyên gia phần mềm trong các tổ chức và doanh nghiệp CNTT như Hiệp hội phần mềm Việt Nam (VINASA), FPT, Chương trình đào tạo của EC-Council, Học viện mạng và phần cứng Jetking (Ấn Độ); các trường Đào tạo Nghệ thuật trên thế giới, các Hiệp hội về Đào tạo nghệ thuật và thiết kế (National Association of Schools of Art and Design – NASAD).
+
+                                                        Sinh viên được học với những giảng viên giàu kinh nghiệm, trong đó có nhiều giảng viên là các tiến sỹ, giáo sư, chuyên gia đến từ các doanh nghiệp hàng đầu trong lĩnh vực CNTT.
+
+                                                        Chương trình ngành CNTT được thiết kế gồm 4 khối kiến thức: Kiến thức chung, kiến thức ngành, chuyên ngành và lựa chọn. Chương trình được thiết kế tích hợp, cân bằng giữa kiến thức nền tảng với công nghệ, kỹ thuật mới và chú trọng đến kỹ năng thực hành và năng lực ứng dụng, sáng tạo. Các học phần được gợi ý theo một tiến độ hợp lý để sinh viên lựa chọn nhằm thúc đẩy hứng thú học tập của sinh viên ngay từ học kỳ đầu tiên.
+
+                                                        Kiến thức chung: Bao gồm các nội dung về lý luận chính trị, pháp luật, kỹ năng công dân thế kỷ 21, ngoại ngữ, giáo dục thể chất và quốc phòng.
+
+                                                        Kiến thức ngành: Được thiết kế tích hợp cân bằng giữa kiến thức nền tảng với công nghệ và kỹ thuật mới, bao gồm các kiến thức từ nền tảng toán học, kiến thức khoa học cơ bản của nhóm ngành CNTT và máy tính như ngôn ngữ lập trình, giải thuật, dữ liệu, hệ điều hành, mạng máy tính, quy trình phá triển phần mềm, quản trị dự án CNTT… tới các công nghệ mới như IOT, trí tuệ nhân tạo. Với chuyên ngành Thiết kế đồ họa, khối kiến thức ngành gồm các học phần nền tảng về mỹ thuật, thiết kế và nền tảng ứng dụng của CNTT trong thiết kế đồ họa.
+
+                                                        Kiến thức chuyên ngành: Sinh viên ngành CNTT có cơ hội lựa chọn một trong sáu hướng chuyên ngành gồm Kỹ thuật phần mềm, Hệ thống thông tin, An toàn thông tin, Trí tuệ nhân tạo, IOT, Thiết kế đồ họa.
+
+                                                        Khối kiến thức lựa chọn tự do: Được thiết kế xen kẽ để sinh viên có cơ hội lựa chọn các học phần ưa thích, mở rộng sang lĩnh vực khác hoặc nâng cao hơn so với chuyên ngành đã học. Sinh viên có thể học từ học phần riêng lẻ hoặc cả nhóm học phần về một hướng kỹ thuật, công nghệ mới như Blockchain, FinTech, Automative, Data Science,… Đây là các học phần tăng tính chủ động và cá nhân hóa cho từng sinh viên.</p>
+                                                    <h2>Thời gian học tập ngành công nghệ thông tin</h2>
+                                                    <P>Chương trình gồm 9 học kỳ chuyên ngành trong đó có 1 học kỳ học tập tại doanh nghiệp (OJT), chưa kể thời gian rèn luyện tập trung và thời gian học tiếng Anh dự bị (phụ thuộc vào trình độ tiếng Anh đầu vào của sinh viên)
+
+                                                        Chương trình CNTT được phân chia làm 4 giai đoạn: giai đoạn chuẩn bị (hời gian rèn luyện tập trung + thời gian học tiếng Anh dự bị phụ thuộc trình độ tiếng Anh đầu vào của sinh viên), giai đoạn căn bản (5 học kỳ), giai đoạn học tập thực tế tại doanh nghiệp (OJT, 1 học kỳ) và giai đoạn hoàn thành tốt nghiệp (3 học kỳ cuối).</P>
+                                                    <h2>Yêu cầu đầu vào</h2>
+                                                    <P>Tốt nghiệp PTTH (hoặc tương đương), đạt quy định trúng tuyển đại học của Bộ GDĐT và đủ điều kiện xét tuyển của trường Đại học FPT.
+
+                                                        Tiếng Anh đạt mức Summit 2 (hoặc tương đương)</P>
+                                                    <h2>Cấu trúc chương trình</h2>
+
+                                                    <img src="assets/img/portfolio/congnghethongtin.jpg" alt="..."  /></div>
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <strong>Client:</strong>
+                                                        Threads
+                                                    </li>
+                                                    <li>
+                                                        <strong>Category:</strong>
+                                                        Illustration
+                                                    </li>
+                                                </ul>
+                                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                                    <i class="fas fa-xmark me-1"></i>
+                                                    Close Project
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 3 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Ngôn Ngữ Anh</h2>
-
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/maxresdefault.jpg" alt="..." />
-                                    <div class="text-nganhhoc">
-                                        <h2> Tổng quan về ngành Ngôn ngữ Anh:</h2>
-                                        <p> Tiếng Anh hiện đã trở thành ngôn ngữ thông dụng trên thế giới cũng như trong khu vực. Dựa trên thế mạnh và kinh nghiệm đào tạo của mình, trường Đại học FPT mở ngành Ngôn ngữ Anh với mục tiêu trang bị cho sinh viên kiến thức nền tảng về ngôn ngữ, văn hoá Anh-Mỹ, kỹ năng chuyên sâu về thực hành tiếng, kỹ năng phân tích, tổng hợp và đánh giá các vấn đề liên quan tới chuyên ngành. Một mặt chương trình theo chuẩn năng lực ngoại ngữ của Bộ giáo dục và Đào tạo Việt Nam. Mặt khác chương trình học được thiết kế linh động phần mở rộng, cho phép sinh viên lựa chọn hướng ngành theo khả năng và sở thích với 2 chuyên ngành đang “hot” hiện nay là Tiếng Anh thương mại và Tiếng Anh Công nghệ thông tin. Sinh viên được trang bị kiến thức căn bản về Thương mại và CNTT song song học chuyên môn tiếng Anh. Đây thực sự là điểm mới so với các chương trình hiện có ở Việt Nam. Qua đó sinh viên được rèn luyện những kỹ năng cần thiết, biết vận dụng các kiến thức về ngôn ngữ, thương mại, công nghệ vào công việc thực tế…
-
-                                            Giai đoạn OJT sinh viên có nhiều cơ hội được đào tạo tại các công ty trên toàn cầu khi vừa có khả năng ngôn ngữ Anh, vừa có kiến thức căn bản về Thương mại hoặc CNTT. Đặc biệt, sinh viên có cơ hội ít nhất tham gia 1 học kỳ tại các nước nói tiếng Anh như Úc, Mỹ,… trong quá trình học.
-
-                                            Tháng 8 năm 2015, Đại học FPT ký kết hợp tác chiến lược về khảo thí tiếng Anh với Hội đồng Anh. Việc hợp tác chiến lược với Hội Đồng Anh là nền tảng quan trọng trong chiến lược đảm bảo chất lượng giáo dục và chuẩn tiếng Anh đầu ra cho sinh viên Đại học FPT, đồng thời là bước tất yếu trong mối quan hệ hợp tác giữa Đại học FPT các tổ chức giáo dục hàng đầu thế giới.</p>
-                                        <h2>Thời gian học ngành ngôn ngữ Anh</h2>
-                                        <p>Chương trình gồm 9 học kỳ chuyên ngành trong đó có 1 học kỳ học tập tại doanh nghiệp (OJT), chưa kể thời gian rèn luyện tập trung và thời gian học tiếng Anh dự bị (phụ thuộc vào trình độ tiếng Anh đầu vào của sinh viên).
-
-                                            Địa điểm học: Hà Nội, Đà Nẵng, TP.Hồ Chí Minh, Cần Thơ</p>
-                                        <h2>Yêu cầu đầu vào:</h2>
-                                        <p>Tốt nghiệp PTTH (hoặc tương đương), đạt quy định trúng tuyển đại học của Bộ GDĐT và đủ điều kiện xét tuyển của Trường Đại học FPT.</p>
-                                        <h2>Triển vọng nghề nghiệp:</h2>
-                                        <p>Cử nhân ngành Ngôn ngữ Anh có thể đảm nhiệm một số công việc sau:
-
-                                            .Thư ký, trợ lý đối ngoại trong các công ty, tập đoàn kinh tế, bộ ngoại giao, lãnh sự quán…
-                                            .Phiên dịch, biên dịch tiếng Anh
-                                            .Điều phối viên, chuyên viên làm việc tại các cơ quan quản lý nhà nước từ trung ương đến địa phương, các Bộ, các ngành hữu quan của Việt Nam, tổ chức kinh tế quốc tế, các doanh nghiệp thuộc mọi thành phần kinh tế của Việt Nam, các doanh nghiệp, tổ chức Châu Âu, Anh-Mỹ, các nước sử dụng tiếng Anh là ngôn ngữ hành chính.
-                                            .Quản trị dự án CNTT của các công ty CNTT thế giới và Việt Nam
-                                            .Giảng dạy tiếng Anh cho các tổ chức và cơ sở đào tạo.
-                                            .Học trình độ cao hơn về các ngành Ngôn ngữ Anh, Ngôn ngữ học, Quốc tế học, Chứng chỉ giảng dạy tiếng Anh cho người nước ngoài (TESOL). Học mở rộng các ngành thuộc khối ngành Kinh doanh.</p>
-                                        <h2>Cấu trúc chương trình</h2>
-                                        <img  src="assets/img/portfolio/ngonnguanh.png" alt="..." /></div>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Finish
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Identity
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
+                    <!-- Portfolio item 2 modal popup-->
+                    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <div class="modal-body">
+                                                <!-- Project details-->
+                                                <h2 class="text-uppercase">Project Name</h2>
+                                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/222.1.jpg" alt="..." />
+                                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <strong>Client:</strong>
+                                                        Explore
+                                                    </li>
+                                                    <li>
+                                                        <strong>Category:</strong>
+                                                        Graphic Design
+                                                    </li>
+                                                </ul>
+                                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                                    <i class="fas fa-xmark me-1"></i>
+                                                    Close Project
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 4 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Ngôn Ngữ Nhật</h2>
+                    <!-- Portfolio item 3 modal popup-->
+                    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <div class="modal-body">
+                                                <!-- Project details-->
+                                                <h2 class="text-uppercase">Ngôn Ngữ Anh</h2>
 
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Diem-chuan-nganh-Ngon-ngu-Nhat-2021.jpg" alt="..." /> 
-                                    <div class="text-nganhhoc" >
-                                        <h2 class="item-intro text-muted">Tổng quan về ngành Ngôn ngữ Nhật</h2>
-                                        <p>Các công ty Nhật Bản đang đẩy mạnh đầu tư vào Việt Nam, mở ra những cơ hội việc làm phong phú với mức đãi ngộ tốt, thu nhập cao dành cho người thành thạo tiếng Nhật. Trước nhu cầu đó, Trường Đại học FPT mở ngành Ngôn ngữ Nhật. Chương trình đào tạo Ngôn ngữ Nhật của Trường đại học FPT là sự kết hợp của năm khối kiến thức: kiến thức chuyên môn, kiến thức xã hội, kỹ năng mềm, ngoại ngữ và định hướng công nghiệp nhằm giúp sinh viên tốt nghiệp có đủ kiến thức, kỹ năng chuyên môn, năng lực ngoại ngữ và kỹ năng mềm để kinh doanh với các đối tác nước ngoài.
+                                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/maxresdefault.jpg" alt="..." />
+                                                <div class="text-nganhhoc">
+                                                    <h2> Tổng quan về ngành Ngôn ngữ Anh:</h2>
+                                                    <p> Tiếng Anh hiện đã trở thành ngôn ngữ thông dụng trên thế giới cũng như trong khu vực. Dựa trên thế mạnh và kinh nghiệm đào tạo của mình, trường Đại học FPT mở ngành Ngôn ngữ Anh với mục tiêu trang bị cho sinh viên kiến thức nền tảng về ngôn ngữ, văn hoá Anh-Mỹ, kỹ năng chuyên sâu về thực hành tiếng, kỹ năng phân tích, tổng hợp và đánh giá các vấn đề liên quan tới chuyên ngành. Một mặt chương trình theo chuẩn năng lực ngoại ngữ của Bộ giáo dục và Đào tạo Việt Nam. Mặt khác chương trình học được thiết kế linh động phần mở rộng, cho phép sinh viên lựa chọn hướng ngành theo khả năng và sở thích với 2 chuyên ngành đang “hot” hiện nay là Tiếng Anh thương mại và Tiếng Anh Công nghệ thông tin. Sinh viên được trang bị kiến thức căn bản về Thương mại và CNTT song song học chuyên môn tiếng Anh. Đây thực sự là điểm mới so với các chương trình hiện có ở Việt Nam. Qua đó sinh viên được rèn luyện những kỹ năng cần thiết, biết vận dụng các kiến thức về ngôn ngữ, thương mại, công nghệ vào công việc thực tế…
 
-                                            Chương trình học được thiết kế linh động (dưới sự cố vấn của Giáo sư Satoshi Miyazaki – Trường sau đại học về ứng dụng ngôn ngữ Nhật Đại học Waseda, Nhật Bản, đồng thời là Giám đốc dự án trường Đại học Việt Nhật ) cho phép sinh viên lựa chọn hướng ngành theo khả năng và sở thích với hai chuyên ngành đang “hot” hiện nay là tiếng Nhật thương mại và tiếng Nhật Công nghệ thông tin… Đặc biệt, sinh viên có cơ hội đi học 1 học kỳ tại Nhật Bản trong giai đoạn OJT.
+                                                        Giai đoạn OJT sinh viên có nhiều cơ hội được đào tạo tại các công ty trên toàn cầu khi vừa có khả năng ngôn ngữ Anh, vừa có kiến thức căn bản về Thương mại hoặc CNTT. Đặc biệt, sinh viên có cơ hội ít nhất tham gia 1 học kỳ tại các nước nói tiếng Anh như Úc, Mỹ,… trong quá trình học.
 
-                                            Cử nhân ngành ngôn ngữ Nhật Bản có phẩm chất chính trị, đạo đức nghề nghiệp, có hiểu biết về văn hóa Nhật Bản, có kiến thức cơ bản về ngôn ngữ và khả năng ứng dụng tiếng Nhật Bản thành thạo để làm việc tại các cơ quan ban ngành của chính phủ, các tổ chức, doanh nghiệp trong và ngoài nước; thực hiện hoạt động nghiên cứu khoa học, hợp tác về đào tạo và nghiên cứu khoa học với các tổ chức trong nước và nước ngoài. Đặc biệt, có thể làm việc hiệu quả thông qua việc sử dụng tiếng Nhật trong lĩnh vực Thương mại và Công nghệ Thông tin.</p>
-                                        <h2>Triển vọng nghề nghiệp:</h2>
-                                        <p> Cử nhân ngành Ngôn ngữ Nhật có thể đảm nhiệm một số công việc sau:
+                                                        Tháng 8 năm 2015, Đại học FPT ký kết hợp tác chiến lược về khảo thí tiếng Anh với Hội đồng Anh. Việc hợp tác chiến lược với Hội Đồng Anh là nền tảng quan trọng trong chiến lược đảm bảo chất lượng giáo dục và chuẩn tiếng Anh đầu ra cho sinh viên Đại học FPT, đồng thời là bước tất yếu trong mối quan hệ hợp tác giữa Đại học FPT các tổ chức giáo dục hàng đầu thế giới.</p>
+                                                    <h2>Thời gian học ngành ngôn ngữ Anh</h2>
+                                                    <p>Chương trình gồm 9 học kỳ chuyên ngành trong đó có 1 học kỳ học tập tại doanh nghiệp (OJT), chưa kể thời gian rèn luyện tập trung và thời gian học tiếng Anh dự bị (phụ thuộc vào trình độ tiếng Anh đầu vào của sinh viên).
 
-                                            Phiên dịch, biên dịch tiếng Nhật: Thực hiện nhiệm vụ biên phiên dịch tiếng tiếng Nhật trong các lĩnh vực kinh doanh, công nghệ thông tin, đào tạo…
-                                            Điều phối viên/ Chuyên viên/ Thư ký văn phòng/ Trợ lý giảm đốc/ Trợ lý đối ngoại: Sử dụng tiếng Nhật Bản để làm việc tại các doanh nghiệp, tổ chức trong và ngoài nước làm việc tại các cơ quan quản lý nhà nước từ trung ương đến địa phương, các Bộ, các ngành hữu quan của Việt Nam, tổ chức kinh tế quốc tế, các doanh nghiệp thuộc mọi thành phần kinh tế của Việt Nam, các doanh nghiệp, tổ chức Nhật Bản…trong các lĩnh vực liên quan đến công nghệ thông tin, đối ngoại, hợp tác, du lịch với các đối tác nước ngoài, tham gia đàm phán, giao dịch, theo dõi hợp đồng liên quan, lập kế hoạch, chương trình đón tiếp khách quốc tế…
-                                            Quản trị dự án CNTT với Nhật Bản của các công ty CNTT Việt Nam
-                                            Nghiên cứu viên: Thực hiện nhiệm vụ nghiên cứu trong các trung tâm, đơn vị nghiên cứu về Nhật Bản học trong và ngoài nước.
-                                            Giảng dạy: Tham gia vào các cơ sở đào tạo trong và ngoài nước. Nếu người học hoàn thành thêm khóa đào tạo nghiệp vụ sư phạm thì có thể tham gia vào giảng dạy ngoại ngữ trong các trường phổ thông trong tương lai, khi tiếng Nhật được đưa vào giảng dạy tại bậc phổ thông.
-                                        </p>
-                                        <h2>Triển vọng nâng cao trình độ:</h2>
-                                        <p>
-                                            Sinh viên được trang bị thêm tiếng Anh nên có thể làm việc trong các môi trường đa ngôn ngữ.
-                                            Có khả năng tiếp thu và học hỏi nhanh chóng kiến thức mới để phục vụ yêu cầu công việc cũng như tiềm năng cho các vị trí cao hơn.
-                                            Có thể tiếp tục học sau đại học ở các chuyên ngành trong lĩnh vực: Ngôn ngữ Nhật Bản, Khu vực học, Kinh doanh quốc tê, Quản lý, Giáo dục…tại các trường trong nước hoặc nước ngoài.
-                                        </p>
-                                        <h2>Thời gian học</h2>
-                                        <p>Thời gian học: 4 năm
+                                                        Địa điểm học: Hà Nội, Đà Nẵng, TP.Hồ Chí Minh, Cần Thơ</p>
+                                                    <h2>Yêu cầu đầu vào:</h2>
+                                                    <p>Tốt nghiệp PTTH (hoặc tương đương), đạt quy định trúng tuyển đại học của Bộ GDĐT và đủ điều kiện xét tuyển của Trường Đại học FPT.</p>
+                                                    <h2>Triển vọng nghề nghiệp:</h2>
+                                                    <p>Cử nhân ngành Ngôn ngữ Anh có thể đảm nhiệm một số công việc sau:
 
-                                            Chương trình gồm 9 học kỳ chuyên ngành trong đó có 1 học kỳ học tập tại doanh nghiệp (OJT), chưa kể thời gian rèn luyện tập trung và thời gian học tiếng Anh dự bị (phụ thuộc vào trình độ tiếng Anh đầu vào của sinh viên)
-
-                                            Địa điểm học: Hà Nội, Đà Nẵng, TP.Hồ Chí Minh, Cần Thơ</p>
-                                        <h2>Yêu cầu đầu vào:</h2>
-                                        <p>Cần có năng lực học ngoại ngữ, cụ thể cần có điểm học tiếng Anh (hoặc tiếng Nhật) ở phổ thông từ mức khá trở lên.</p>
-                                        <h2>Cấu trúc chương trình đào tạo</h2>
-                                        <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/ngonngunhat.png" alt="..." /> </div>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Lines
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Branding
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
+                                                        .Thư ký, trợ lý đối ngoại trong các công ty, tập đoàn kinh tế, bộ ngoại giao, lãnh sự quán…
+                                                        .Phiên dịch, biên dịch tiếng Anh
+                                                        .Điều phối viên, chuyên viên làm việc tại các cơ quan quản lý nhà nước từ trung ương đến địa phương, các Bộ, các ngành hữu quan của Việt Nam, tổ chức kinh tế quốc tế, các doanh nghiệp thuộc mọi thành phần kinh tế của Việt Nam, các doanh nghiệp, tổ chức Châu Âu, Anh-Mỹ, các nước sử dụng tiếng Anh là ngôn ngữ hành chính.
+                                                        .Quản trị dự án CNTT của các công ty CNTT thế giới và Việt Nam
+                                                        .Giảng dạy tiếng Anh cho các tổ chức và cơ sở đào tạo.
+                                                        .Học trình độ cao hơn về các ngành Ngôn ngữ Anh, Ngôn ngữ học, Quốc tế học, Chứng chỉ giảng dạy tiếng Anh cho người nước ngoài (TESOL). Học mở rộng các ngành thuộc khối ngành Kinh doanh.</p>
+                                                    <h2>Cấu trúc chương trình</h2>
+                                                    <img  src="assets/img/portfolio/ngonnguanh.png" alt="..." /></div>
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <strong>Client:</strong>
+                                                        Finish
+                                                    </li>
+                                                    <li>
+                                                        <strong>Category:</strong>
+                                                        Identity
+                                                    </li>
+                                                </ul>
+                                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                                    <i class="fas fa-xmark me-1"></i>
+                                                    Close Project
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 5 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Ngôn Ngữ Hnà</h2>
+                    <!-- Portfolio item 4 modal popup-->
+                    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <div class="modal-body">
+                                                <!-- Project details-->
+                                                <h2 class="text-uppercase">Ngôn Ngữ Nhật</h2>
 
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Korean-Language-1.jpg" alt="..." />
-                                    <div class="text-nganhhoc">
-                                        <h2 class="item-intro text-muted">Tổng quan về ngành Ngôn ngữ Hàn Quốc</h2>
-                                        <p>Theo ước tính của Viện nghiên cứu Trung ương Hàn Quốc, công bố tại toạ đàm “Hàn Quốc học – kết nối giảng đường và doanh nghiệp” tháng 6/2016, các doanh nghiệp Hàn Quốc đang tạo ra khoảng 400,000 việc làm tại Việt Nam, trong đó, bên cạnh các vị trí kỹ thuật không cần nhiều đến tiếng Hàn; rất nhiều vị trí liên quan đến quản lý, hành chính, marketing… đều có yêu cầu nhân lực phải có trình độ Tiếng Hàn ở mức độ cao. Mặc dù nhu cầu tiếng Hàn nói riêng và hiểu biết Hàn Quốc nói chung đang tăng nhanh, nhưng nguồn cung nhân lực tiếng Hàn trình độ cao ở Việt Nam hiện nay còn rất hạn chế. Đứng trước thực trạng trên, trường Đại học FPT đặt ra mục tiêu xây dựng chương trình đào tạo ngành ngôn ngữ Hàn Quốc với mục tiêu trang bị cho sinh viên tốt nghiệp có đủ kiến thức, kỹ năng chuyên môn, năng lực ngoại ngữ và kỹ năng mềm để có thể làm việc hiệu quả trong các lĩnh vực chuyên môn sử dụng tiếng Hàn, đặc biệt là trong lĩnh vực thương mại.
+                                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Diem-chuan-nganh-Ngon-ngu-Nhat-2021.jpg" alt="..." /> 
+                                                <div class="text-nganhhoc" >
+                                                    <h2 class="item-intro text-muted">Tổng quan về ngành Ngôn ngữ Nhật</h2>
+                                                    <p>Các công ty Nhật Bản đang đẩy mạnh đầu tư vào Việt Nam, mở ra những cơ hội việc làm phong phú với mức đãi ngộ tốt, thu nhập cao dành cho người thành thạo tiếng Nhật. Trước nhu cầu đó, Trường Đại học FPT mở ngành Ngôn ngữ Nhật. Chương trình đào tạo Ngôn ngữ Nhật của Trường đại học FPT là sự kết hợp của năm khối kiến thức: kiến thức chuyên môn, kiến thức xã hội, kỹ năng mềm, ngoại ngữ và định hướng công nghiệp nhằm giúp sinh viên tốt nghiệp có đủ kiến thức, kỹ năng chuyên môn, năng lực ngoại ngữ và kỹ năng mềm để kinh doanh với các đối tác nước ngoài.
 
-                                            Thời gian học: 9 kỳ, tổng khối lượng kiến thức toàn khóa: 136 tín chỉ
+                                                        Chương trình học được thiết kế linh động (dưới sự cố vấn của Giáo sư Satoshi Miyazaki – Trường sau đại học về ứng dụng ngôn ngữ Nhật Đại học Waseda, Nhật Bản, đồng thời là Giám đốc dự án trường Đại học Việt Nhật ) cho phép sinh viên lựa chọn hướng ngành theo khả năng và sở thích với hai chuyên ngành đang “hot” hiện nay là tiếng Nhật thương mại và tiếng Nhật Công nghệ thông tin… Đặc biệt, sinh viên có cơ hội đi học 1 học kỳ tại Nhật Bản trong giai đoạn OJT.
 
-                                            Địa điểm học: Cần Thơ, Hà Nội</p>
-                                        <h2>Cấu trúc chương trình</h2>
-                                        <p>Kiến thức giáo dục đại cương: 43 tín chỉ
+                                                        Cử nhân ngành ngôn ngữ Nhật Bản có phẩm chất chính trị, đạo đức nghề nghiệp, có hiểu biết về văn hóa Nhật Bản, có kiến thức cơ bản về ngôn ngữ và khả năng ứng dụng tiếng Nhật Bản thành thạo để làm việc tại các cơ quan ban ngành của chính phủ, các tổ chức, doanh nghiệp trong và ngoài nước; thực hiện hoạt động nghiên cứu khoa học, hợp tác về đào tạo và nghiên cứu khoa học với các tổ chức trong nước và nước ngoài. Đặc biệt, có thể làm việc hiệu quả thông qua việc sử dụng tiếng Nhật trong lĩnh vực Thương mại và Công nghệ Thông tin.</p>
+                                                    <h2>Triển vọng nghề nghiệp:</h2>
+                                                    <p> Cử nhân ngành Ngôn ngữ Nhật có thể đảm nhiệm một số công việc sau:
 
-                                            Kiến thức thực hành tiếng: 36 tín chỉ
+                                                        Phiên dịch, biên dịch tiếng Nhật: Thực hiện nhiệm vụ biên phiên dịch tiếng tiếng Nhật trong các lĩnh vực kinh doanh, công nghệ thông tin, đào tạo…
+                                                        Điều phối viên/ Chuyên viên/ Thư ký văn phòng/ Trợ lý giảm đốc/ Trợ lý đối ngoại: Sử dụng tiếng Nhật Bản để làm việc tại các doanh nghiệp, tổ chức trong và ngoài nước làm việc tại các cơ quan quản lý nhà nước từ trung ương đến địa phương, các Bộ, các ngành hữu quan của Việt Nam, tổ chức kinh tế quốc tế, các doanh nghiệp thuộc mọi thành phần kinh tế của Việt Nam, các doanh nghiệp, tổ chức Nhật Bản…trong các lĩnh vực liên quan đến công nghệ thông tin, đối ngoại, hợp tác, du lịch với các đối tác nước ngoài, tham gia đàm phán, giao dịch, theo dõi hợp đồng liên quan, lập kế hoạch, chương trình đón tiếp khách quốc tế…
+                                                        Quản trị dự án CNTT với Nhật Bản của các công ty CNTT Việt Nam
+                                                        Nghiên cứu viên: Thực hiện nhiệm vụ nghiên cứu trong các trung tâm, đơn vị nghiên cứu về Nhật Bản học trong và ngoài nước.
+                                                        Giảng dạy: Tham gia vào các cơ sở đào tạo trong và ngoài nước. Nếu người học hoàn thành thêm khóa đào tạo nghiệp vụ sư phạm thì có thể tham gia vào giảng dạy ngoại ngữ trong các trường phổ thông trong tương lai, khi tiếng Nhật được đưa vào giảng dạy tại bậc phổ thông.
+                                                    </p>
+                                                    <h2>Triển vọng nâng cao trình độ:</h2>
+                                                    <p>
+                                                        Sinh viên được trang bị thêm tiếng Anh nên có thể làm việc trong các môi trường đa ngôn ngữ.
+                                                        Có khả năng tiếp thu và học hỏi nhanh chóng kiến thức mới để phục vụ yêu cầu công việc cũng như tiềm năng cho các vị trí cao hơn.
+                                                        Có thể tiếp tục học sau đại học ở các chuyên ngành trong lĩnh vực: Ngôn ngữ Nhật Bản, Khu vực học, Kinh doanh quốc tê, Quản lý, Giáo dục…tại các trường trong nước hoặc nước ngoài.
+                                                    </p>
+                                                    <h2>Thời gian học</h2>
+                                                    <p>Thời gian học: 4 năm
 
-                                            Kiến thức lý thuyết tiếng, văn hóa – văn học Hàn Quốc: 18 tín chỉ
+                                                        Chương trình gồm 9 học kỳ chuyên ngành trong đó có 1 học kỳ học tập tại doanh nghiệp (OJT), chưa kể thời gian rèn luyện tập trung và thời gian học tiếng Anh dự bị (phụ thuộc vào trình độ tiếng Anh đầu vào của sinh viên)
 
-                                            Kiến thức chuyên ngành: 18 tín chỉ
-
-                                            Khóa luận tốt nghiệp: 5 tín chỉ
-
-                                            Phát triển cá nhân, nghề nghiệp: 16 tín chỉ</p>
-                                        <h2>Dự kiến đối tượng tuyển sinh</h2>
-                                        <p>– Học sinh tốt nghiệp THPT đạt kết quả thi quốc gia, quốc tế, hoặc đạt điểm cao trong kỳ thi đại học của quốc gia.
-
-                                            – Cần có năng lực học ngoại ngữ, cụ thể cần có điểm học tiếng Anh (hoặc ngoại ngữ khác) ở phổ thông từ mức khá trở lên.</p>
-                                        <h2>Triển vọng nghề nghiệp</h2>
-                                        <p>Sử dụng tiếng Hàn Quốc để làm việc tại các doanh nghiệp, tổ chức trong và ngoài nước các lĩnh vực liên quan đến thương mại, hợp tác, du lịch với các đối tác nước ngoài
-                                            Thực hiện nhiệm vụ biên phiên dịch tiếng tiếng Hàn trong các lĩnh vực kinh doanh, du lịch, đào tạo,…
-                                            Sinh viên được trang bị thêm tiếng Anh nên có thể làm việc trong các môi trường đa ngôn ngữ.
-                                            Nếu người học hoàn thành thêm khóa đào tạo nghiệp vụ sư phạm thì có thể tham gia vào giảng dạy ngoại ngữ trong các trường phổ thông trong tương lai, khi tiếng Hàn được đưa vào giảng dạy tại bậc phổ thông.</p>
-                                        <h2>Kinh nghiệm tích lũy sau chương trình</h2>
-                                        <p>Sinh viên có hiểu biết về văn hóa, kiến thức ngôn ngữ và có thể sử dụng tiếng Hàn Quốc để giao tiếp thành thạo.
-                                            Có kỹ năng làm việc nhóm, kỹ năng thuyết trình, kỹ năng tư duy phản biện, kỹ năng lập kế hoạch và quản lý thời gian, có kỹ năng tốt về tiếng Anh tự tin giao tiếp trong phạm vi nghiệp vụ chuyên môn.
-                                            Có kiến thức cơ bản về kinh tế, giao dịch thương mại, quản lý dự án.
-                                            Có thể tiếp tục học sau đại học ở các chuyên ngành trong lĩnh vực: Ngôn ngữ Hàn Quốc, Kinh doanh quốc tế, Quản lý, Giáo dục… tại các trường trong nước hoặc nước ngoài.</p>
-                                        <h2>Tốt nghiệp</h2>
-                                        <p>Sinh viên tích lũy đủ số tín chỉ và chứng chỉ theo yêu cầu. Nhà trường tổ chức 3 đợt tốt nghiệp vào các tháng 1, 5, 9 hàng năm
-
-                                        </p></div>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Southwest
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Website Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
+                                                        Địa điểm học: Hà Nội, Đà Nẵng, TP.Hồ Chí Minh, Cần Thơ</p>
+                                                    <h2>Yêu cầu đầu vào:</h2>
+                                                    <p>Cần có năng lực học ngoại ngữ, cụ thể cần có điểm học tiếng Anh (hoặc tiếng Nhật) ở phổ thông từ mức khá trở lên.</p>
+                                                    <h2>Cấu trúc chương trình đào tạo</h2>
+                                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/ngonngunhat.png" alt="..." /> </div>
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <strong>Client:</strong>
+                                                        Lines
+                                                    </li>
+                                                    <li>
+                                                        <strong>Category:</strong>
+                                                        Branding
+                                                    </li>
+                                                </ul>
+                                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                                    <i class="fas fa-xmark me-1"></i>
+                                                    Close Project
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 6 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Quản Trị Kinh Doanh</h2>
+                    <!-- Portfolio item 5 modal popup-->
+                    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <div class="modal-body">
+                                                <!-- Project details-->
+                                                <h2 class="text-uppercase">Ngôn Ngữ Hnà</h2>
 
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/quản-trị-kinh-doanh.png" alt="..." />
-                                    <div class="text-nganhhoc">
-                                        <h2 class="item-intro text-muted">Tổng Quan Về Ngành Quản Trị Kinh Doanh</h2>
-                                        <p>Chương trình ngành Quản trị kinh doanh (QTKD) của Trường Đại học FPT được thiết kế cập nhật theo chương trình của các trường nổi tiếng của thế giới và đáp ứng các tiêu chuẩn quốc tế. Năm 2019, ngành QTKD Trường Đại học FPT cơ sở Hoà Lạc đạt kiểm định  toàn phần ACBSP (Accreditation Council for Business Schools and Programs – Hội đồng kiểm định các trường học và chương trình đào tạo về kinh doanh).
+                                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/Korean-Language-1.jpg" alt="..." />
+                                                <div class="text-nganhhoc">
+                                                    <h2 class="item-intro text-muted">Tổng quan về ngành Ngôn ngữ Hàn Quốc</h2>
+                                                    <p>Theo ước tính của Viện nghiên cứu Trung ương Hàn Quốc, công bố tại toạ đàm “Hàn Quốc học – kết nối giảng đường và doanh nghiệp” tháng 6/2016, các doanh nghiệp Hàn Quốc đang tạo ra khoảng 400,000 việc làm tại Việt Nam, trong đó, bên cạnh các vị trí kỹ thuật không cần nhiều đến tiếng Hàn; rất nhiều vị trí liên quan đến quản lý, hành chính, marketing… đều có yêu cầu nhân lực phải có trình độ Tiếng Hàn ở mức độ cao. Mặc dù nhu cầu tiếng Hàn nói riêng và hiểu biết Hàn Quốc nói chung đang tăng nhanh, nhưng nguồn cung nhân lực tiếng Hàn trình độ cao ở Việt Nam hiện nay còn rất hạn chế. Đứng trước thực trạng trên, trường Đại học FPT đặt ra mục tiêu xây dựng chương trình đào tạo ngành ngôn ngữ Hàn Quốc với mục tiêu trang bị cho sinh viên tốt nghiệp có đủ kiến thức, kỹ năng chuyên môn, năng lực ngoại ngữ và kỹ năng mềm để có thể làm việc hiệu quả trong các lĩnh vực chuyên môn sử dụng tiếng Hàn, đặc biệt là trong lĩnh vực thương mại.
 
-                                            Chương trình không chỉ bao quát các kiến thức, kỹ năng chuyên môn mà còn chú trọng đến các kỹ năng mềm, được thiết kế song hành với nhu cầu liên tục biến đổi của các thị trường, ngành, nghề trong và ngoài nước. Sinh viên được cung cấp kiến thức quản trị như Quản trị Marketing, Quản trị Tài chính, Kế toán quản trị, cũng như nắm vững kiến thức cơ bản của ngành kinh tế, hiểu biết môi trường kinh doanh trong nước và quốc tế. Đặc biệt, sinh viên sẽ được học cách ứng dụng CNTT vào trong công việc, học cách tư duy công nghệ trong lĩnh vực chuyên môn.
+                                                        Thời gian học: 9 kỳ, tổng khối lượng kiến thức toàn khóa: 136 tín chỉ
 
-                                            Sinh viên được học với những giảng viên giàu kinh nghiệm, trong đó có nhiều giảng viên là các tiến sỹ, giáo sư chuyên gia đến từ các doanh nghiệp hàng đầu trong lĩnh vực QTKD nói chung cũng như các chuyên ngàng liên quan nói riêng.
+                                                        Địa điểm học: Cần Thơ, Hà Nội</p>
+                                                    <h2>Cấu trúc chương trình</h2>
+                                                    <p>Kiến thức giáo dục đại cương: 43 tín chỉ
 
-                                            Chương trình ngành QTKD được thiết kế gồm 4 khối kiến thức: Kiến thức chung, kiến thức ngành, chuyên ngành và lựa chọn. Các học phần được gợi ý theo một tiến độ hợp lý để sinh viên lựa chọn nhằm thúc đẩy hứng thú học tập của sinh viên ngay từ học kỳ đầu tiên.
+                                                        Kiến thức thực hành tiếng: 36 tín chỉ
 
-                                            Kiến thức chung: bao gồm các nội dung về lý luận chính trị, pháp luật, kỹ năng công dân thế kỷ 21, ngoại ngữ, giáo dục thể chất và quốc phòng.
+                                                        Kiến thức lý thuyết tiếng, văn hóa – văn học Hàn Quốc: 18 tín chỉ
 
-                                            Kiến thức ngành: được thiết kế tích hợp cân bằng giữa kiến thức nền tảng từ kinh tế, tài chính, quản trị tới các nghiệp vụ chung của ngành QTKD với công nghệ, kỹ thuật được áp dụng cho lĩnh vực này.
+                                                        Kiến thức chuyên ngành: 18 tín chỉ
 
-                                            Kiến thức chuyên ngành: sinh viên ngành QTKD có cơ hội lựa chọn một trong năm hướng chuyên ngành gồm Digital Marketing (Marketing số), Kinh doanh quốc tế, Quản trị khách sạn, Quản trị dịch vụ du lịch và lữu hành, Quản trị truyền thông đa phương tiện.
+                                                        Khóa luận tốt nghiệp: 5 tín chỉ
 
-                                            Các kỹ năng mềm trong quá trình đào tạo như kỹ năng giao tiếp, kỹ năng làm việc nhóm, kỹ năng quản lý, kỹ năng đàm phán là hành trang giúp sinh viên tiếp cận môi trường thực tế của doanh nghiệp. Bên cạnh đó, sinh viên còn được học hai ngoại ngữ là Tiếng Anh bao gồm hai môn Tiếng Anh học thuật, Tiếng Anh thương mại và tiếng Trung.</p>
-                                        <h2>Thời gian học tập</h2>
-                                        <p>Chương trình gồm 9 học kỳ chuyên ngành trong đó có 1 học kỳ học tập tại doanh nghiệp (OJT), chưa kể thời gian rèn luyện tập trung và thời gian học tiếng Anh dự bị (phụ thuộc vào trình độ tiếng Anh đầu vào của sinh viên)</p>
-                                        <h2>Yêu cầu đầu vào ngành quản trị kinh doanh</h2>
-                                        <p>Tốt nghiệp PTTH (hoặc tương đương), đạt quy định trúng tuyển đại học của Bộ GDĐT và đủ điều kiện xét tuyển của trường đại học FPT.
+                                                        Phát triển cá nhân, nghề nghiệp: 16 tín chỉ</p>
+                                                    <h2>Dự kiến đối tượng tuyển sinh</h2>
+                                                    <p>– Học sinh tốt nghiệp THPT đạt kết quả thi quốc gia, quốc tế, hoặc đạt điểm cao trong kỳ thi đại học của quốc gia.
 
-                                            Tiếng Anh đạt mức Summit 2 (hoặc tương đương)</p>
-                                        <h2>Cấu trúc chương trình</h2>
-                                        <img src="assets/img/portfolio/quantrikinhdoanh.png" alt="..."   /></div>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Window
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Photography
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
+                                                        – Cần có năng lực học ngoại ngữ, cụ thể cần có điểm học tiếng Anh (hoặc ngoại ngữ khác) ở phổ thông từ mức khá trở lên.</p>
+                                                    <h2>Triển vọng nghề nghiệp</h2>
+                                                    <p>Sử dụng tiếng Hàn Quốc để làm việc tại các doanh nghiệp, tổ chức trong và ngoài nước các lĩnh vực liên quan đến thương mại, hợp tác, du lịch với các đối tác nước ngoài
+                                                        Thực hiện nhiệm vụ biên phiên dịch tiếng tiếng Hàn trong các lĩnh vực kinh doanh, du lịch, đào tạo,…
+                                                        Sinh viên được trang bị thêm tiếng Anh nên có thể làm việc trong các môi trường đa ngôn ngữ.
+                                                        Nếu người học hoàn thành thêm khóa đào tạo nghiệp vụ sư phạm thì có thể tham gia vào giảng dạy ngoại ngữ trong các trường phổ thông trong tương lai, khi tiếng Hàn được đưa vào giảng dạy tại bậc phổ thông.</p>
+                                                    <h2>Kinh nghiệm tích lũy sau chương trình</h2>
+                                                    <p>Sinh viên có hiểu biết về văn hóa, kiến thức ngôn ngữ và có thể sử dụng tiếng Hàn Quốc để giao tiếp thành thạo.
+                                                        Có kỹ năng làm việc nhóm, kỹ năng thuyết trình, kỹ năng tư duy phản biện, kỹ năng lập kế hoạch và quản lý thời gian, có kỹ năng tốt về tiếng Anh tự tin giao tiếp trong phạm vi nghiệp vụ chuyên môn.
+                                                        Có kiến thức cơ bản về kinh tế, giao dịch thương mại, quản lý dự án.
+                                                        Có thể tiếp tục học sau đại học ở các chuyên ngành trong lĩnh vực: Ngôn ngữ Hàn Quốc, Kinh doanh quốc tế, Quản lý, Giáo dục… tại các trường trong nước hoặc nước ngoài.</p>
+                                                    <h2>Tốt nghiệp</h2>
+                                                    <p>Sinh viên tích lũy đủ số tín chỉ và chứng chỉ theo yêu cầu. Nhà trường tổ chức 3 đợt tốt nghiệp vào các tháng 1, 5, 9 hàng năm
+
+                                                    </p></div>
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <strong>Client:</strong>
+                                                        Southwest
+                                                    </li>
+                                                    <li>
+                                                        <strong>Category:</strong>
+                                                        Website Design
+                                                    </li>
+                                                </ul>
+                                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                                    <i class="fas fa-xmark me-1"></i>
+                                                    Close Project
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
-</html>
+                    <!-- Portfolio item 6 modal popup-->
+                    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <div class="modal-body">
+                                                <!-- Project details-->
+                                                <h2 class="text-uppercase">Quản Trị Kinh Doanh</h2>
+
+                                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/quản-trị-kinh-doanh.png" alt="..." />
+                                                <div class="text-nganhhoc">
+                                                    <h2 class="item-intro text-muted">Tổng Quan Về Ngành Quản Trị Kinh Doanh</h2>
+                                                    <p>Chương trình ngành Quản trị kinh doanh (QTKD) của Trường Đại học FPT được thiết kế cập nhật theo chương trình của các trường nổi tiếng của thế giới và đáp ứng các tiêu chuẩn quốc tế. Năm 2019, ngành QTKD Trường Đại học FPT cơ sở Hoà Lạc đạt kiểm định  toàn phần ACBSP (Accreditation Council for Business Schools and Programs – Hội đồng kiểm định các trường học và chương trình đào tạo về kinh doanh).
+
+                                                        Chương trình không chỉ bao quát các kiến thức, kỹ năng chuyên môn mà còn chú trọng đến các kỹ năng mềm, được thiết kế song hành với nhu cầu liên tục biến đổi của các thị trường, ngành, nghề trong và ngoài nước. Sinh viên được cung cấp kiến thức quản trị như Quản trị Marketing, Quản trị Tài chính, Kế toán quản trị, cũng như nắm vững kiến thức cơ bản của ngành kinh tế, hiểu biết môi trường kinh doanh trong nước và quốc tế. Đặc biệt, sinh viên sẽ được học cách ứng dụng CNTT vào trong công việc, học cách tư duy công nghệ trong lĩnh vực chuyên môn.
+
+                                                        Sinh viên được học với những giảng viên giàu kinh nghiệm, trong đó có nhiều giảng viên là các tiến sỹ, giáo sư chuyên gia đến từ các doanh nghiệp hàng đầu trong lĩnh vực QTKD nói chung cũng như các chuyên ngàng liên quan nói riêng.
+
+                                                        Chương trình ngành QTKD được thiết kế gồm 4 khối kiến thức: Kiến thức chung, kiến thức ngành, chuyên ngành và lựa chọn. Các học phần được gợi ý theo một tiến độ hợp lý để sinh viên lựa chọn nhằm thúc đẩy hứng thú học tập của sinh viên ngay từ học kỳ đầu tiên.
+
+                                                        Kiến thức chung: bao gồm các nội dung về lý luận chính trị, pháp luật, kỹ năng công dân thế kỷ 21, ngoại ngữ, giáo dục thể chất và quốc phòng.
+
+                                                        Kiến thức ngành: được thiết kế tích hợp cân bằng giữa kiến thức nền tảng từ kinh tế, tài chính, quản trị tới các nghiệp vụ chung của ngành QTKD với công nghệ, kỹ thuật được áp dụng cho lĩnh vực này.
+
+                                                        Kiến thức chuyên ngành: sinh viên ngành QTKD có cơ hội lựa chọn một trong năm hướng chuyên ngành gồm Digital Marketing (Marketing số), Kinh doanh quốc tế, Quản trị khách sạn, Quản trị dịch vụ du lịch và lữu hành, Quản trị truyền thông đa phương tiện.
+
+                                                        Các kỹ năng mềm trong quá trình đào tạo như kỹ năng giao tiếp, kỹ năng làm việc nhóm, kỹ năng quản lý, kỹ năng đàm phán là hành trang giúp sinh viên tiếp cận môi trường thực tế của doanh nghiệp. Bên cạnh đó, sinh viên còn được học hai ngoại ngữ là Tiếng Anh bao gồm hai môn Tiếng Anh học thuật, Tiếng Anh thương mại và tiếng Trung.</p>
+                                                    <h2>Thời gian học tập</h2>
+                                                    <p>Chương trình gồm 9 học kỳ chuyên ngành trong đó có 1 học kỳ học tập tại doanh nghiệp (OJT), chưa kể thời gian rèn luyện tập trung và thời gian học tiếng Anh dự bị (phụ thuộc vào trình độ tiếng Anh đầu vào của sinh viên)</p>
+                                                    <h2>Yêu cầu đầu vào ngành quản trị kinh doanh</h2>
+                                                    <p>Tốt nghiệp PTTH (hoặc tương đương), đạt quy định trúng tuyển đại học của Bộ GDĐT và đủ điều kiện xét tuyển của trường đại học FPT.
+
+                                                        Tiếng Anh đạt mức Summit 2 (hoặc tương đương)</p>
+                                                    <h2>Cấu trúc chương trình</h2>
+                                                    <img src="assets/img/portfolio/quantrikinhdoanh.png" alt="..."   /></div>
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <strong>Client:</strong>
+                                                        Window
+                                                    </li>
+                                                    <li>
+                                                        <strong>Category:</strong>
+                                                        Photography
+                                                    </li>
+                                                </ul>
+                                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                                    <i class="fas fa-xmark me-1"></i>
+                                                    Close Project
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bootstrap core JS-->
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+                    <!-- Core theme JS-->
+                    <script src="js/scripts.js"></script>
+                    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+                    <!-- * *                               SB Forms JS                               * *-->
+                    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+                    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+                    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+                    </body>
+                    </html>

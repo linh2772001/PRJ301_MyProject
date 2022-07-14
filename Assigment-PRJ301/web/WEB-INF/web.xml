@@ -24,6 +24,10 @@
         <servlet-name>Mark2Controller</servlet-name>
         <servlet-class>controller.Mark2Controller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>controller.LogoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>Mark2Controller</servlet-name>
         <url-pattern>/mark</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
