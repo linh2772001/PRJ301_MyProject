@@ -39,8 +39,8 @@ public class ListStudentController extends HttpServlet {
         StudentDBContext dbs = new StudentDBContext();
 //        ArrayList<Student> stu = dbs.search(id);
         
-        String raw_code = request.getParameter("code");
-        String code = (raw_code!=null && raw_code.length()>0)?raw_code:null;
+        String code1 = request.getParameter("code");
+        String code = (code1!=null && code1.length()>0)?code1:null;
         ArrayList<Student> students = dbs.getList(code, id);
         int count =1;
         GroupDBContext db = new GroupDBContext();

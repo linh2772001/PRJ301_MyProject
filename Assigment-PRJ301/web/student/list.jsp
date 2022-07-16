@@ -48,6 +48,7 @@
                     <th>DOB</th>
                     <th>IMG</th>
                     <th>ADDRESS</th>
+                    <th>View Mark</th>
                 </tr>
             </thead>
             <c:forEach items="${requestScope.students}" var="s">
@@ -61,6 +62,12 @@
                         <td>${s.sdob}</td>
                         <td><img src="${s.simg}" alt=""/></td>
                         <td>${s.saddress}</td>
+
+                        <td> 
+                            <a href="">View</a></br> 
+                        </td>                               
+
+
 
                     </tr>
                 </tbody>
