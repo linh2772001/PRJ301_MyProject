@@ -23,6 +23,7 @@ public class StudentDBContext extends DBContext<Student> {
 
   
     public ArrayList<Student> getList(String code, int sid) {
+        ArrayList<Student> students = new ArrayList<>();
         HashMap<Integer, Object> params = new HashMap<>();
         try {
             String sql = "SELECT *\n"
@@ -54,9 +55,6 @@ public class StudentDBContext extends DBContext<Student> {
                 s.setSgender(rs.getBoolean("sgender"));
                 s.setSdob(rs.getDate("sdob"));
                 s.setSaddress(rs.getString("saddress"));
-                Group g = new Group();
-                g.setGid(rs.getInt("gid"));
-                s.setGroup(g);
                 Group group = new Group();
                 group.setGid(rs.getInt("gid"));
                 group.setGname(rs.getString("gname"));
