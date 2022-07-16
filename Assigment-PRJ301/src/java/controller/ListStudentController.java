@@ -49,7 +49,7 @@ public class ListStudentController extends HttpServlet {
         request.setAttribute("count", count);
         request.setAttribute("id", id);
         request.setAttribute("students", students);
-        request.getRequestDispatcher("../view/list.jsp").forward(request, response);
+        request.getRequestDispatcher("../student/list.jsp").forward(request, response);
         
     } 
 
