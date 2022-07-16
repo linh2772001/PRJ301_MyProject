@@ -58,9 +58,9 @@ public class SubjectDBContext extends DBContext<Subjects> {
                 s.setSubid(rs.getInt("subid"));
                 s.setSubcode(rs.getString("subcode"));
                 s.setSubname(rs.getString("subname"));
-                Student stu = new Student();
-                stu.setSid(rs.getInt("sid"));
-                stu.setSname(rs.getString("sname"));
+                Student student = new Student();
+                student.setSid(rs.getInt("sid"));
+                student.setSname(rs.getString("sname"));
 //                stu.setCode(rs.getString("code"));
 //                stu.setSmember(rs.getString("smember"));
 
@@ -68,7 +68,7 @@ public class SubjectDBContext extends DBContext<Subjects> {
 //                stu.setSgender(rs.getBoolean("sgender"));
 //                stu.setSdob(rs.getDate("sdob"));
 //                stu.setSaddress(rs.getString("saddress"));
-                s.setStudent(stu);
+                s.setStudent(student);
                 sub.add(s);
 
             }

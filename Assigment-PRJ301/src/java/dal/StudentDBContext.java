@@ -23,7 +23,6 @@ public class StudentDBContext extends DBContext<Student> {
 
   
     public ArrayList<Student> getList(String code, int sid) {
-        ArrayList<Student> stu = new ArrayList<>();
         HashMap<Integer, Object> params = new HashMap<>();
         try {
             String sql = "SELECT *\n"
@@ -57,14 +56,17 @@ public class StudentDBContext extends DBContext<Student> {
                 s.setSaddress(rs.getString("saddress"));
                 Group g = new Group();
                 g.setGid(rs.getInt("gid"));
-                g.setGname(rs.getString("gname"));
                 s.setGroup(g);
-                stu.add(s);
+                Group group = new Group();
+                group.setGid(rs.getInt("gid"));
+                group.setGname(rs.getString("gname"));
+                s.setGroup(group);
+                students.add(s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return stu;
+        return students;
     }
 
     public ArrayList get(int gid) {
@@ -129,7 +131,7 @@ public class StudentDBContext extends DBContext<Student> {
 
     public static void main(String[] args) {
         StudentDBContext db = new StudentDBContext();
-        ArrayList<Student> get = db.getList("SE1601", 1);
+        ArrayList<Student> get = db.getList("HE000001", 1);
         System.out.println(get);
 
     }
