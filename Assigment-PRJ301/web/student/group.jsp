@@ -72,7 +72,7 @@
                         <tr>                       
                             <c:forEach items="${requestScope.groups}" var="g">                        
                                 <td>
-                                    <a href="student?id=${g.gid}">${g.gname}</a>   
+                                    <a href="student/list?id=${g.gid}">${g.gname}</a>   
                                 </td>                         
                             </c:forEach>                            
                         </tr> 
