@@ -17,33 +17,37 @@
 
     <body>
         <div class="e">
-            <h2> University Academic Portal</h2>       
+            <h2> Student Mark  Report</h2>       
         </div>
 
         <div class="ee">
-            <div>
-                <p> <a href="subject">Home</a>
-                    | Groups </p>
-            </div>
+            <c:if test="${sessionScope.account == null}">
+                <div>
+                    <p> <a href="home">Home</a>
+                        | <a href="login">Login</a> </p>
+                </div>
+            </c:if>
             <div> 
-             <p>
-                  <c:if test="${sessionScope.account != null}">
-                            <div class="aaaaa">
-                                <p >
-                                    <a href="logout">LogOut</a>             
-                                </p>
-                            </div>
-                   </c:if>  
-             </p>
+                <p>
+                    <c:if test="${sessionScope.account != null}">
+                    <div class="aaaaa">
+                        <p >
+                            <a href="home">Home</a>
+                            |<a href="">${sessionScope.account.displayname}</a>
+                            | <a href="logout">LogOut</a>             
+                        </p>
+                    </div>
+                </c:if>  
+                </p>
             </div>   
-            
+
         </div>            
 
-        <div class="cc">
-            Select a course, then a group ...
-        </div>        
-        
-        
+        <!--        <div class="cc">
+                    Select a course, then a group ...
+                </div>        -->
+
+
         <div class="lienket">
             <table>               
                 <tr >
@@ -52,7 +56,7 @@
                     <th class="d">Course</th>
                     <th class="f">Group</th>                                         
                 </tr>    
-                
+
                 <td style="vertical-align:top">University</td>
                 <td style="vertical-align:top"></td>
                 <td style="vertical-align:top">
@@ -68,6 +72,7 @@
                 </td>
 
                 <td style="vertical-align:top">
+                    <c:if test="${sessionScope.account != null}">
                     <table>   
                         <tr>                       
                             <c:forEach items="${requestScope.groups}" var="g">                        
@@ -77,6 +82,7 @@
                             </c:forEach>                            
                         </tr> 
                     </table>   
+                    </c:if>
                 </td>
             </table>
         </div>
@@ -85,13 +91,13 @@
 
         <table width="100%" style="border: 1px solid transparent;" class="lienket">
 
-            
+
         </table>
 
 
 
     </body>
-        <style>
+    <style>
         .a{
             width: 120px;
             height: 140px;
@@ -118,7 +124,7 @@
             text-align: left;
         }
         th{
-            background-color:#6b99da;
+            background-color:#F6A7C1;
             display: table-cell;
         }
         .lienket a{
@@ -161,9 +167,10 @@
             justify-content: left;
             background-color: #f5f5f5;
 
+
         }
         p{
-            font-size: 15px;
+            font-size: 25px;
         }
 
         .ee a{
@@ -173,7 +180,7 @@
         .ee p{
             padding-left: 15px;
             font-family: Times New Roman;
-            font-size: 13px;
+            font-size: 25px;
         }
         .cc{
             font-family: Times New Roman;
