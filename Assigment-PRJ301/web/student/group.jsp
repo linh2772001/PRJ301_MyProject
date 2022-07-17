@@ -21,13 +21,13 @@
         </div>
 
         <div class="ee">
-            <c:if test="${sessionScope.account == null}">
+      <!--        <c:if test="${sessionScope.account == null}">
                 <div>
                     <p> <a href="home">Home</a>
                         | <a href="login">Login</a> </p>
                 </div>
-            </c:if>
-            <div> 
+            </c:if>-->
+          <div> 
                 <p>
                     <c:if test="${sessionScope.account != null}">
                     <div class="aaaaa">

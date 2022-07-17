@@ -12,7 +12,17 @@ public class Assessment {
     private int aid ;
     private String aname ;
     private float weight ;
+    private int subid ;
 
+    public int getSubid() {
+        return subid;
+    }
+
+    public void setSubid(int subid) {
+        this.subid = subid;
+    }
+    
+    
     public int getAid() {
         return aid;
     }

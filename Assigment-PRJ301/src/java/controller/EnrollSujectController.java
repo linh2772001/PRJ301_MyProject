@@ -5,7 +5,6 @@
 
 package controller;
 
-import dal.GroupDBContext;
 import dal.SubjectDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,14 +13,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import model.Group;
+import javax.security.auth.Subject;
 import model.Subjects;
 
 /**
  *
  * @author ASUS
  */
-public class SujectController extends HttpServlet {
+public class EnrollSujectController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,7 +31,19 @@ public class SujectController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet EnrollSujectController</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet EnrollSujectController at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -46,16 +57,17 @@ public class SujectController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-     SubjectDBContext db = new SubjectDBContext();
-        ArrayList<Subjects> subject = db.list();
-        request.setAttribute("subject", subject);      
+        int sid = 1;
         
-        GroupDBContext dbgroup = new GroupDBContext();
-        ArrayList<Group> groups = dbgroup.search(1);
-        request.setAttribute("groups", groups); 
+        SubjectDBContext dbsub = new SubjectDBContext();
+        ArrayList<Subjects> subject = dbsub.search(sid);
+        request.setAttribute("subject", subject);
         
+        
+        request.setAttribute("sid", sid);
+
         request.getRequestDispatcher("student/Suject.jsp").forward(request, response);
-    }
+    } 
 
     /** 
      * Handles the HTTP <code>POST</code> method.

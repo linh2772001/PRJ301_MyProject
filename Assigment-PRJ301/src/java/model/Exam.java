@@ -11,12 +11,39 @@ import java.sql.Date;
  * @author ASUS
  */
 public class Exam {
-    private int eid ;
-    private int sid ;
-    private int aid ;
-    private float score ;
-    private Date date ;
-    private int subid ;
+
+    private int eid;
+    private int sid;
+    private int aid;
+    private float score;
+    private Date date;
+    private Assessment assessment;
+    private Student student;
+    private Subjects subjects;
+
+    public Assessment getAssessment() {
+        return assessment;
+    }
+
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Subjects getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Subjects subjects) {
+        this.subjects = subjects;
+    }
 
     public int getEid() {
         return eid;
@@ -58,14 +85,6 @@ public class Exam {
         this.date = date;
     }
 
-    public int getSubid() {
-        return subid;
-    }
+  
 
-    public void setSubid(int subid) {
-        this.subid = subid;
-    }
-    
-    
-            
 }

@@ -1,30 +1,20 @@
 <%-- 
-    Document   : Showmark
-    Created on : Jul 7, 2022, 8:51:27 PM
+    Document   : viewmake
+    Created on : Jul 17, 2022, 11:20:16 AM
     Author     : ASUS
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
-
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Show Mark</title>
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
     </head>
-    <style>
+
+     <style>
 
         th{
             background-color:#F6A7C1;
@@ -173,7 +163,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                                         <tr>
                                                             <td>
                                                                 <c:forEach items="${requestScope.subject}" var="s">                               
-                                                                    <a href="">${s.subname} </a>(${s.subcode})</br>                                
+                                                                    <a href="markview?sid=${requestScope.sid}&subid=${s.subid}">${s.subname} </a>(${s.subcode})</br>                                
                                                                 </c:forEach>
 
                                                             </td>
