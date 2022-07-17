@@ -13,23 +13,24 @@ import java.util.logging.Logger;
 import model.Assessment;
 import model.Exam;
 import model.Student;
+import model.Subjects;
 
 /**
  *
  * @author ASUS
  */
-public class ExamDBContext extends DBContext<Exam>{
+public class ExamDBContext extends DBContext<Exam> {
 
     @Override
     public ArrayList<Exam> list() {
-ArrayList<Exam> exams = new ArrayList<>();
+        ArrayList<Exam> exams = new ArrayList<>();
         try {
-            String sql = "SELECT A.* FROM\n"
-                    + "(SELECT eid,sid,aid,score,date FROM Exam) A\n"
-                    + "INNER JOIN\n"
-                    + "(SELECT sid,aid,MAX(date) as date FROM Exam\n"
-                    + "GROUP BY sid,aid) B\n"
-                    + "ON A.aid = B.aid AND A.sid = B.sid AND A.date = B.date";
+            String sql = "SELECT A.* FROM                    (\n"
+                    + "SELECT eid,sid,aid,score,date FROM Exam) A\n"
+                    + "                     INNER JOIN\n"
+                    + "                    (SELECT sid,aid,MAX(date) as date FROM Exam\n"
+                    + "                    GROUP BY sid,aid) B\n"
+                    + "                    ON A.aid = B.aid AND A.sid = B.sid AND A.date = B.date";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
@@ -55,7 +56,43 @@ ArrayList<Exam> exams = new ArrayList<>();
             Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return exams;
-    }    
+    }
+     public ArrayList<Exam> search(int sid, int subid) {
+        ArrayList<Exam> exam = new ArrayList<>();
+        try {
+            String sql = "SELECT Exam.eid, Exam.score, Assessment.aname,Assessment.aid, Assessment.weight , Student.sid, Subjects.subid\n" +
+"                    FROM   Assessment INNER JOIN\n" +
+"                            Exam ON Assessment.aid = Exam.aid INNER JOIN\n" +
+"                                 Student ON Exam.sid = Student.sid INNER JOIN\n" +
+"                               Subjects ON Assessment.subid = Subjects.subid AND Exam.subid = Subjects.subid\n" +
+"                    			 where Student.sid = ? and Subjects.subid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(2, subid);
+            stm.setInt(1, sid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Exam e = new Exam();
+                e.setEid(rs.getInt("eid"));
+                e.setScore(rs.getFloat("score"));
+                Assessment a = new Assessment();
+                a.setAid(rs.getInt("aid"));
+                a.setAname(rs.getString("aname"));
+                a.setWeight(rs.getFloat("weight"));
+                Student stu = new Student();
+                stu.setSid(rs.getInt("sid"));
+                Subjects sub = new Subjects();
+                sub.setSubid(rs.getInt("subid"));
+                e.setAssessment(a);
+                e.setStudent(stu);
+                e.setSubjects(sub);
+                exam.add(e);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return exam;
+    }
+
 
     @Override
     public Exam get(String id) {
@@ -81,5 +118,10 @@ ArrayList<Exam> exams = new ArrayList<>();
     public Exam getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+  public static void main(String[] args) {
+        ExamDBContext db = new ExamDBContext();
+        ArrayList<Exam> list = db.search(1, 1);
+      
+        System.out.println("" + list);
+    }
 }

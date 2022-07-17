@@ -63,9 +63,13 @@ public class EnrollSujectController extends HttpServlet {
         ArrayList<Subjects> subject = dbsub.search(sid);
         request.setAttribute("subject", subject);
         
+        int subid = 0 ;
+        for (Subjects sub : subject) {
+            subid = sub.getSubid();
+        }
         
         request.setAttribute("sid", sid);
-
+        request.setAttribute("subid", subid);
         request.getRequestDispatcher("student/Suject.jsp").forward(request, response);
     } 
 

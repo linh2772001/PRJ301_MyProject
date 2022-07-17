@@ -138,7 +138,7 @@
         </div>  
         <table class="l">
             <tr>
-                <td>Grade report for Nguyễn Thị Thu Linh (HE151525)</td>
+                <td>Grade report for ${sessionScope.students.sname} (${sessionScope.students.code})</td>
             </tr>
         </table>     
 
@@ -163,7 +163,7 @@
                                                         <tr>
                                                             <td>
                                                                <c:forEach items="${requestScope.subject}" var="s">                               
-                                                                    <a  href="assessment?sid=${requestScope.sid}&subid=${s.subid}">${s.subname}</a>(${s.subcode})</br>                                 
+                                                                    <a  href="assessment?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>  (${s.subcode})</br>                                 
                                                                 </c:forEach>
 
                                                             </td>
@@ -172,7 +172,67 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </td>                                
+                            </td>
+                            <td valign='top'>
+                                <div>
+                                    <table>
+                                        <caption class="dd">... then see report</caption>
+
+                                        <tr>
+                                            <th>Grade category</th>
+                                            <th>Grade item</th>
+                                            <th>Weight</th>
+                                            <th>Value</th>
+                                            <th>Comment</th>
+                                        </tr>
+
+                                        <tbody>
+                                            <c:forEach items="${requestScope.assessment}" var= "a">
+                                            <tr>
+                                               
+                                                <td></td>
+                                                <td>${a.aname}</td>
+                                                <td>${a.weight}%</td>
+                                                 <c:forEach items="${requestScope.exam}" var= "e">
+                                               
+                                                    <c:if test="${a.aname eq e.getAssessment().aname}">
+                                                       <td> 
+                                                           ${e.score} 
+                                                       </td>
+                                                        </c:if>
+                                                      
+                                                   
+                                                </c:forEach>
+                                                <td></td>
+                                                
+                                            </tr>
+                                            </c:forEach>
+                                        </tbody>
+
+                                        <tfoot>
+                                            <tr>
+                                                <td rowspan="2">Course total</td>
+                                                <td>Average</td>
+                                                <td colspan="3">${requestScope.total}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Status</td>
+                                                <td colspan="3">
+                                                    <c:if test="${requestScope.total >= 5}">
+                                                        <font color="Green">Pass</font>
+                                                    </c:if>
+                                                    <c:if test="${requestScope.total < 5}">
+                                                        <font color="Red">Not Pass</font>
+                                                    </c:if>      
+                                                    <c:if test="${requestScope.total == 5}">
+                                                        <font color="Green">Study</font>
+                                                    </c:if>    
+                                                </td></tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </td>                    
                         </tr>
                     </table>
 
