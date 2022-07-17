@@ -40,6 +40,10 @@
         <servlet-name>AssessmentController</servlet-name>
         <servlet-class>controller.AssessmentController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListStudent</servlet-name>
+        <servlet-class>TeacherController.ListStudent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>AssessmentController</servlet-name>
         <url-pattern>/assessment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStudent</servlet-name>
+        <url-pattern>/liststudent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

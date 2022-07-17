@@ -92,7 +92,62 @@ public class ExamDBContext extends DBContext<Exam> {
         }
         return exam;
     }
-
+    public void saveChanges(ArrayList<Exam> exams) {
+        try {
+            connection.setAutoCommit(false);
+            for (Exam exam : exams) {
+                //INSERT
+                if (exam.getEid()== -1 && exam.getScore() != -1) {
+                    String sql_insert_exam = "INSERT INTO [Exam1]\n"
+                            + "           ([score]\n"
+                            + "           ,[date]\n"
+                            + "           ,[sid]\n"
+                            + "           ,[subid]\n"
+                            + "           ,[aid])\n"
+                            + "     VALUES\n"
+                            + "           (?\n"
+                            + "           ,GETDATE()\n"
+                            + "           ,?\n"
+                            + "           ,?\n"
+                            + "           ,?)";
+                    PreparedStatement stm = connection.prepareStatement(sql_insert_exam);
+                    stm.setInt(2, exam.getStudent().getSid());
+                    stm.setInt(4, exam.getAssessment().getAid());
+                    stm.setFloat(1, exam.getScore());
+                    stm.setFloat(3, exam.getAssessment().getSubid());
+                    stm.executeUpdate();
+                } //UPDATE
+                else if (exam.getEid()!= -1 && exam.getScore() != -1) {
+                    String sql_update_exam = "UPDATE Exam1 SET Score = ? WHERE eid = ?";
+                    PreparedStatement stm = connection.prepareStatement(sql_update_exam);
+                    stm.setInt(2, exam.getEid());
+                    stm.setFloat(1, exam.getScore());
+                    stm.executeUpdate();
+                } //DELETE
+                else if (exam.getEid()!= -1 && exam.getScore() == -1) {
+                    String sql_delete_exam = "DELETE Exam1 WHERE eid = ?";
+                    PreparedStatement stm = connection.prepareStatement(sql_delete_exam);
+                    stm.setInt(1, exam.getEid());
+                    stm.executeUpdate();
+                }
+            }
+            connection.commit();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                connection.rollback();
+            } catch (SQLException ex1) {
+                Logger.getLogger(ExamDBContext.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } finally {
+     
+       try {
+                connection.setAutoCommit(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(ExamDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
     @Override
     public Exam get(String id) {
