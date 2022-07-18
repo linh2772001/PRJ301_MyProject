@@ -59,7 +59,7 @@
                                 <c:forEach items="${requestScope.searchte}" var="s">
                             <tr>
                                 <td>
-                                    <a href="grouplecturers?lid=${requestScope.lid}&subid=${s.subid}"> ${s.subname}</a>(${s.subcode}) 
+                                    <a href="groupteacher?lid=${requestScope.lid}&subid=${s.subid}"> ${s.subname}</a>(${s.subcode}) 
                                 </td>
                             </tr>
 

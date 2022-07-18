@@ -160,7 +160,7 @@ public class ExamDBContext extends DBContext<Exam> {
                     + "                (SELECT sid,aid,MAX(date) as date FROM Exam\n"
                     + "                 GROUP BY sid,aid) B\n"
                     + "                 ON A.aid = B.aid AND A.sid = B.sid AND A.date = B.date\n"
-                    + "                 where subid = 2";
+                    + "                 where subid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, subid);
             ResultSet rs = stm.executeQuery();

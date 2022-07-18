@@ -32,12 +32,10 @@ public class SubjectTecher extends HttpServlet {
     throws ServletException, IOException {
         int lid =1;
         SubjectDBContext db = new SubjectDBContext();
-        
         ArrayList<Subjects> searchte = db.searchTecher(lid);
-                
-        request.setAttribute("lid", lid);     
         request.setAttribute("searchte", searchte);
-        request.getRequestDispatcher("teacher/group.jsp").forward(request, response);
+        request.setAttribute("lid", lid); 
+        request.getRequestDispatcher("teacher/Subjectteach.jsp").forward(request, response);
                
         
            

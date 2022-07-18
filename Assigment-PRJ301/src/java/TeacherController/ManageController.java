@@ -5,12 +5,23 @@
 
 package TeacherController;
 
+import dal.AssessmentDBContext;
+import dal.ExamDBContext;
+import dal.GroupDBContext;
+import dal.StudentDBContext;
+import dal.SubjectDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import model.Assessment;
+import model.Exam;
+import model.Group;
+import model.Student;
+import model.Subjects;
 
 /**
  *
@@ -27,20 +38,36 @@ public class ManageController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ManageController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ManageController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    } 
+       int lid = Integer.parseInt(request.getParameter("lid"));
+        int subid = Integer.parseInt(request.getParameter("subid"));
+        int gid = Integer.parseInt(request.getParameter("gid"));
+
+       GroupDBContext dbgroup = new GroupDBContext();
+        ArrayList<Group> grouptecher = dbgroup.searchtecher(lid, subid);
+        
+        AssessmentDBContext dbass = new AssessmentDBContext();
+        ArrayList<Assessment> assessment = dbass.search(subid);
+
+        StudentDBContext dbstu = new StudentDBContext();
+        ArrayList<Student> student = dbstu.get(gid);
+
+        ExamDBContext dbexam = new ExamDBContext();
+        ArrayList<Exam> listmark = dbexam.showmark(subid);
+        
+        SubjectDBContext db = new SubjectDBContext();
+        ArrayList<Subjects> searchte = db.searchTecher(lid);
+        request.setAttribute("searchte", searchte);
+
+        request.setAttribute("grouptecher", grouptecher);
+        request.setAttribute("listmark", listmark);
+        request.setAttribute("student", student);
+        request.setAttribute("assessment", assessment);
+        request.setAttribute("lid", lid);
+        request.setAttribute("subid", subid);
+        request.getRequestDispatcher("teacher/entermark.jsp").forward(request, response);
+    }
+
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -66,8 +93,49 @@ public class ManageController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+      String[] components = request.getParameterValues("component");        
+        ArrayList<Exam> exams = new ArrayList<>();
+        ExamDBContext dbexam = new ExamDBContext();
+        for (String component : components) {
+            int sid = Integer.parseInt(component.split("_")[0]);
+            int aid = Integer.parseInt(component.split("_")[1]);
+            int subid = Integer.parseInt(component.split("_")[2]);
+            Exam e = new Exam();
+            Student s = new Student();
+            s.setSid(sid);
+            Assessment a = new Assessment();
+            a.setAid(aid);
+            a.setSubid(subid);
+            e.setAssessment(a);
+            e.setStudent(s);
+            String score = request.getParameter("score" + sid + "_" + aid);
+            if (score.length() > 0) {
+                {
+                    e.setScore(Float.parseFloat(score));
+                }
+            } else {
+                {
+                    e.setScore(-1);
+                }
+            }
+            String eid = request.getParameter("eid" + sid + "_" + aid);
+            if (eid.length() > 0) {
+                {
+                    e.setEid(Integer.parseInt(eid));
+                }
+            } else {
+                {
+                    e.setEid(-1);
+                }
+            }
+            exams.add(e);
+        }
+        dbexam.saveChanges(exams);
+        
+        response.sendRedirect("subjecttecher");
+    
     }
+    
 
     /** 
      * Returns a short description of the servlet.

@@ -5,18 +5,29 @@
 
 package TeacherController;
 
+import dal.AssessmentDBContext;
+import dal.ExamDBContext;
+import dal.GroupDBContext;
+import dal.StudentDBContext;
+import dal.SubjectDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import model.Assessment;
+import model.Exam;
+import model.Group;
+import model.Student;
+import model.Subjects;
 
 /**
  *
  * @author ASUS
  */
-public class ListStudent extends HttpServlet {
+public class ShowMarkController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -25,7 +36,7 @@ public class ListStudent extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -33,14 +44,16 @@ public class ListStudent extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ListStudent</title>");  
+            out.println("<title>Servlet NewServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ListStudent at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet NewServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     } 
+
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -53,7 +66,35 @@ public class ListStudent extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+       response.setContentType("text/html;charset=UTF-8");
+        int lid = Integer.parseInt(request.getParameter("lid"));
+        int subid = Integer.parseInt(request.getParameter("subid"));
+        int gid = Integer.parseInt(request.getParameter("gid"));
+
+       GroupDBContext dbgroup = new GroupDBContext();
+        ArrayList<Group> grouptecher = dbgroup.searchtecher(lid, subid);
+
+        AssessmentDBContext dbass = new AssessmentDBContext();
+        ArrayList<Assessment> assessment = dbass.search(subid);
+
+        StudentDBContext dbstu = new StudentDBContext();
+        ArrayList<Student> student = dbstu.get(gid);
+
+        ExamDBContext dbexam = new ExamDBContext();
+        ArrayList<Exam> listmark = dbexam.showmark(subid);
+         SubjectDBContext db = new SubjectDBContext();
+        ArrayList<Subjects> searchte = db.searchTecher(lid);
+        request.setAttribute("searchte", searchte);
+
+        request.setAttribute("grouptecher", grouptecher);
+        request.setAttribute("listmark", listmark);
+        request.setAttribute("student", student);
+        request.setAttribute("assessment", assessment);
+        request.setAttribute("lid", lid);
+        request.setAttribute("subid", subid);
+        request.setAttribute("gid", gid);
+        request.getRequestDispatcher("teacher/entermark.jsp").forward(request, response);
+    
     } 
 
     /** 

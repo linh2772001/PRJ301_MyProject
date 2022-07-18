@@ -70,14 +70,14 @@ public class GroupDBContext extends DBContext<Group> {
     public ArrayList<Group> searchtecher(int lid, int subid) {
         ArrayList<Group> group = new ArrayList<>();
         try {
-            String sql = "SELECT [Group].gid,[Group].gname, Teacher.lid, Subjects.subid, Subjects.subcode\n"
-                    + "                    FROM   [Group] INNER JOIN\n"
-                    + "                               [Teacher Group] ON [Group].gid = [Teacher Group].gid INNER JOIN\n"
-                    + "                                Teacher ON [Teacher Group].lid = Teacher.lid INNER JOIN\n"
-                    + "                               [Teacher Subjects] ON Teacher.lid = [Teacher Subjects].lid INNER JOIN\n"
-                    + "                               Subjects ON [Teacher Subjects].subid = Subjects.subid INNER JOIN\n"
-                    + "                           [Subject Group] ON [Group].gid = [Subject Group].gid AND Subjects.subid = [Subject Group].subid\n"
-                    + "                    		  where Teacher.lid = ? and Subjects.subid = ?";
+            String sql = "SELECT [Group].gid,[Group].gname, Teacher.lid, Subjects.subid, Subjects.subcode,Subjects.subname\n" +
+"                                     FROM   [Group] INNER JOIN\n" +
+"                                                  [Teacher Group] ON [Group].gid = [Teacher Group].gid INNER JOIN\n" +
+"                                                   Teacher ON [Teacher Group].lid = Teacher.lid INNER JOIN\n" +
+"                                                   [Teacher Subjects] ON Teacher.lid = [Teacher Subjects].lid INNER JOIN\n" +
+"                                                   Subjects ON [Teacher Subjects].subid = Subjects.subid INNER JOIN\n" +
+"                                               [Subject Group] ON [Group].gid = [Subject Group].gid AND Subjects.subid = [Subject Group].subid\n" +
+"                                        		  where Teacher.lid = ? and Subjects.subid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, lid);
             stm.setInt(2, subid);
@@ -89,6 +89,7 @@ public class GroupDBContext extends DBContext<Group> {
                 Subjects s = new Subjects();
                 s.setSubid(rs.getInt("subid"));
                 s.setSubcode(rs.getString("subcode"));
+                s.setSubname(rs.getString("subname"));
                 Teacher teacher = new Teacher();
                 teacher.setLid(rs.getInt("lid"));
                 g.setTeacher(teacher);

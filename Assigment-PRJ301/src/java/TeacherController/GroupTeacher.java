@@ -6,6 +6,7 @@
 package TeacherController;
 
 import dal.GroupDBContext;
+import dal.SubjectDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import model.Group;
+import model.Subjects;
 
 /**
  *
@@ -34,10 +36,14 @@ public class GroupTeacher extends HttpServlet {
         int subid = Integer.parseInt(request.getParameter("subid"));       
         GroupDBContext dbgroup = new GroupDBContext();
         ArrayList<Group> grouptecher = dbgroup.searchtecher(lid, subid);
+        SubjectDBContext db = new SubjectDBContext();
+        
+        ArrayList<Subjects> searchte = db.searchTecher(lid);
+        request.setAttribute("searchte", searchte);
         request.setAttribute("grouptecher", grouptecher);
         request.setAttribute("lid", lid);
         request.setAttribute("subid", subid);
-        request.getRequestDispatcher("teacher/group.jsp").forward(request, response);
+        request.getRequestDispatcher("teacher/Groupteach.jsp").forward(request, response);
     } 
     
 
