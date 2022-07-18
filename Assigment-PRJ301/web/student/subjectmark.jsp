@@ -138,7 +138,7 @@
         </div>  
         <table class="l">
             <tr>
-                <td>Grade report for ${sessionScope.students.sname} (${sessionScope.students.code})</td>
+                <td>Grade report for ${sessionScope.account.displayname}</td>
             </tr>
         </table>     
 

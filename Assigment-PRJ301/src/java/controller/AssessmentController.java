@@ -36,27 +36,7 @@ public class AssessmentController extends HttpServlet {
     throws ServletException, IOException {
         int sid = Integer.parseInt(request.getParameter("sid"));
         int subid = Integer.parseInt(request.getParameter("subid"));
-//        String la = "Lab1";
-//        String la2 = "lab2";
-//        String ass = "Assignment1";
-//        String ass2 = "Assignment2";
-//        String pe = "Practice Exam";
-//        String fe = "Final Exam";
-//       
-//        
-//        request.setAttribute("Lab1", la);
-//        request.setAttribute("lab2", la2);
-//        request.setAttribute("Assignment1", ass);
-//        request.setAttribute("Assignment2", ass2);
-//        request.setAttribute("Practice Exam", pe);
-//        request.setAttribute("Final Exam", fe);
 
-
-//        int countw = 0;
-//        int counta = 0;
-//        int countp = 0;
-//        int countpt = 0;
-//        int countl = 0;
 
         SubjectDBContext db = new SubjectDBContext();
         ArrayList<Subjects> subject = db.search(sid);
@@ -66,23 +46,7 @@ public class AssessmentController extends HttpServlet {
         AssessmentDBContext assdb = new AssessmentDBContext();
         ArrayList<Assessment> assessment = assdb.search(subid);
 
-//        for (Assessment assesment : assessment) {
-//            if (assesment.getAname().startsWith("Workshop")) {
-//                countw++;
-//            }
-//            if (assesment.getAname().startsWith("Assignment")) {
-//                counta++;
-//            }
-//            if (assesment.getAname().startsWith("Project")) {
-//                countp++;
-//            }
-//            if (assesment.getAname().startsWith("Progress")) {
-//                countpt++;
-//            }
-//            if (assesment.getAname().startsWith("Lab")) {
-//                countl++;
-//            }
-//        }
+
         ExamDBContext examdb = new ExamDBContext();
         ArrayList<Exam> exam = examdb.search(sid, subid);
         float total = 0;
@@ -93,11 +57,7 @@ public class AssessmentController extends HttpServlet {
         }
         
 
-//        request.setAttribute("countw", countw);
-//        request.setAttribute("counta", counta);
-//        request.setAttribute("countp", countp);
-//        request.setAttribute("countpt", countpt);
-//        request.setAttribute("countl", countl);
+
         request.setAttribute("assessment", assessment);
         request.setAttribute("exam", exam);
         request.setAttribute("total", total);
