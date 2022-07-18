@@ -13,6 +13,24 @@ public class Teacher {
    private String lname ;
    private String lmember ;
    private boolean lgenger ;
+   private Group group;
+   private Subjects subjects;
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Subjects getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Subjects subjects) {
+        this.subjects = subjects;
+    }
 
     public int getLid() {
         return lid;

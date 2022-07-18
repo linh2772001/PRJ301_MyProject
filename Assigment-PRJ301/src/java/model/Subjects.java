@@ -14,6 +14,15 @@ public class Subjects {
     private String subcode ;
     private Group group;
     private Student student;
+    private Teacher teacher;
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     public Group getGroup() {
         return group;

@@ -44,6 +44,14 @@
         <servlet-name>ListStudent</servlet-name>
         <servlet-class>TeacherController.ListStudent</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubjectTecher</servlet-name>
+        <servlet-class>TeacherController.SubjectTecher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GroupTeacher</servlet-name>
+        <servlet-class>TeacherController.GroupTeacher</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>ListStudent</servlet-name>
         <url-pattern>/liststudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubjectTecher</servlet-name>
+        <url-pattern>/subjecttecher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupTeacher</servlet-name>
+        <url-pattern>/groupteacher</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

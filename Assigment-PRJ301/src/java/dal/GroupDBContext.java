@@ -12,28 +12,29 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Group;
 import model.Subjects;
+import model.Teacher;
 
 /**
  *
  * @author ASUS
  */
-public class GroupDBContext extends DBContext<Group>{
-    
+public class GroupDBContext extends DBContext<Group> {
+
     public ArrayList<Group> search(int subid) {
         ArrayList<Group> group = new ArrayList<>();
         try {
-            String sql = "SELECT *\n" +
-"                    FROM   [Group] INNER JOIN\n" +
-"                               [Subject Group] ON [Group].gid = [Subject Group].gid INNER JOIN\n" +
-"                               Subjects ON [Subject Group].subid = Subjects.subid\n" +
-"                    		 where Subjects.subid = ?";
+            String sql = "SELECT *\n"
+                    + "                    FROM   [Group] INNER JOIN\n"
+                    + "                               [Subject Group] ON [Group].gid = [Subject Group].gid INNER JOIN\n"
+                    + "                               Subjects ON [Subject Group].subid = Subjects.subid\n"
+                    + "                    		 where Subjects.subid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, subid);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Group g = new Group();
                 g.setGid(rs.getInt("gid"));
-                g.setGname(rs.getString("gname"));              
+                g.setGname(rs.getString("gname"));
                 Subjects s = new Subjects();
                 s.setSubid(rs.getInt("subid"));
                 s.setSubname(rs.getString("subname"));
@@ -49,7 +50,7 @@ public class GroupDBContext extends DBContext<Group>{
 
     @Override
     public ArrayList<Group> list() {
-    ArrayList<Group> groups = new ArrayList<>();
+        ArrayList<Group> groups = new ArrayList<>();
         try {
             String sql = "SELECT gid,gname FROM [Group]";
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -64,7 +65,41 @@ public class GroupDBContext extends DBContext<Group>{
             Logger.getLogger(GroupDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return groups;
-    }    
+    }
+
+    public ArrayList<Group> searchtecher(int lid, int subid) {
+        ArrayList<Group> group = new ArrayList<>();
+        try {
+            String sql = "SELECT [Group].gid,[Group].gname, Teacher.lid, Subjects.subid, Subjects.subcode\n"
+                    + "                    FROM   [Group] INNER JOIN\n"
+                    + "                               [Teacher Group] ON [Group].gid = [Teacher Group].gid INNER JOIN\n"
+                    + "                                Teacher ON [Teacher Group].lid = Teacher.lid INNER JOIN\n"
+                    + "                               [Teacher Subjects] ON Teacher.lid = [Teacher Subjects].lid INNER JOIN\n"
+                    + "                               Subjects ON [Teacher Subjects].subid = Subjects.subid INNER JOIN\n"
+                    + "                           [Subject Group] ON [Group].gid = [Subject Group].gid AND Subjects.subid = [Subject Group].subid\n"
+                    + "                    		  where Teacher.lid = ? and Subjects.subid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lid);
+            stm.setInt(2, subid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Group g = new Group();
+                g.setGid(rs.getInt("gid"));
+                g.setGname(rs.getString("gname"));
+                Subjects s = new Subjects();
+                s.setSubid(rs.getInt("subid"));
+                s.setSubcode(rs.getString("subcode"));
+                Teacher teacher = new Teacher();
+                teacher.setLid(rs.getInt("lid"));
+                g.setTeacher(teacher);
+                g.setSubjects(s);
+                group.add(g);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return group;
+    }
 
     @Override
     public Group get(String id) {
@@ -90,11 +125,12 @@ public class GroupDBContext extends DBContext<Group>{
     public Group getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
     public static void main(String[] args) {
         GroupDBContext db = new GroupDBContext();
         ArrayList<Group> list = db.list();
         System.out.println(list);
-        
+
     }
-    
+
 }

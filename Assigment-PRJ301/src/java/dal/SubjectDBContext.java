@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Student;
 import model.Subjects;
+import model.Teacher;
 
 /**
  *
@@ -74,6 +75,35 @@ public class SubjectDBContext extends DBContext<Subjects> {
             }
         } catch (SQLException ex) {
             Logger.getLogger(SubjectDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sub;
+    }
+
+    public ArrayList<Subjects> searchTecher(int lid) {
+        ArrayList<Subjects> sub = new ArrayList<>();
+        try {
+            String sql = "SELECT Subjects.subid, Subjects.subcode,Subjects.subname,Teacher.lid, Teacher.lname \n"
+                    + "                    FROM   Teacher INNER JOIN\n"
+                    + "                               [Teacher Subjects] ON Teacher.lid = [Teacher Subjects].lid INNER JOIN\n"
+                    + "                                 Subjects ON [Teacher Subjects].subid = Subjects.subid\n"
+                    + "                    			 where Teacher.lid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Subjects s = new Subjects();
+                s.setSubid(rs.getInt("subid"));
+                s.setSubcode(rs.getString("subcode"));
+                s.setSubname(rs.getString("subname"));
+
+                Teacher tec = new Teacher();
+                tec.setLid(rs.getInt("lid"));
+                tec.setLname(rs.getString("lname"));
+                s.setTeacher(tec);
+                sub.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return sub;
     }

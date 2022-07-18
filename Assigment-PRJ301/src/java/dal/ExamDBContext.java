@@ -57,15 +57,16 @@ public class ExamDBContext extends DBContext<Exam> {
         }
         return exams;
     }
-     public ArrayList<Exam> search(int sid, int subid) {
+
+    public ArrayList<Exam> search(int sid, int subid) {
         ArrayList<Exam> exam = new ArrayList<>();
         try {
-            String sql = "SELECT Exam.eid, Exam.score, Assessment.aname,Assessment.aid, Assessment.weight , Student.sid, Subjects.subid\n" +
-"                    FROM   Assessment INNER JOIN\n" +
-"                            Exam ON Assessment.aid = Exam.aid INNER JOIN\n" +
-"                                 Student ON Exam.sid = Student.sid INNER JOIN\n" +
-"                               Subjects ON Assessment.subid = Subjects.subid AND Exam.subid = Subjects.subid\n" +
-"                    			 where Student.sid = ? and Subjects.subid = ?";
+            String sql = "SELECT Exam.eid, Exam.score, Assessment.aname,Assessment.aid, Assessment.weight , Student.sid, Subjects.subid\n"
+                    + "                    FROM   Assessment INNER JOIN\n"
+                    + "                            Exam ON Assessment.aid = Exam.aid INNER JOIN\n"
+                    + "                                 Student ON Exam.sid = Student.sid INNER JOIN\n"
+                    + "                               Subjects ON Assessment.subid = Subjects.subid AND Exam.subid = Subjects.subid\n"
+                    + "                    			 where Student.sid = ? and Subjects.subid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(2, subid);
             stm.setInt(1, sid);
@@ -92,13 +93,14 @@ public class ExamDBContext extends DBContext<Exam> {
         }
         return exam;
     }
+
     public void saveChanges(ArrayList<Exam> exams) {
         try {
             connection.setAutoCommit(false);
             for (Exam exam : exams) {
                 //INSERT
-                if (exam.getEid()== -1 && exam.getScore() != -1) {
-                    String sql_insert_exam = "INSERT INTO [Exam1]\n"
+                if (exam.getEid() == -1 && exam.getScore() != -1) {
+                    String sql_insert_exam = "INSERT INTO [Exam]\n"
                             + "           ([score]\n"
                             + "           ,[date]\n"
                             + "           ,[sid]\n"
@@ -117,15 +119,15 @@ public class ExamDBContext extends DBContext<Exam> {
                     stm.setFloat(3, exam.getAssessment().getSubid());
                     stm.executeUpdate();
                 } //UPDATE
-                else if (exam.getEid()!= -1 && exam.getScore() != -1) {
-                    String sql_update_exam = "UPDATE Exam1 SET Score = ? WHERE eid = ?";
+                else if (exam.getEid() != -1 && exam.getScore() != -1) {
+                    String sql_update_exam = "UPDATE Exam SET Score = ? WHERE eid = ?";
                     PreparedStatement stm = connection.prepareStatement(sql_update_exam);
                     stm.setInt(2, exam.getEid());
                     stm.setFloat(1, exam.getScore());
                     stm.executeUpdate();
                 } //DELETE
-                else if (exam.getEid()!= -1 && exam.getScore() == -1) {
-                    String sql_delete_exam = "DELETE Exam1 WHERE eid = ?";
+                else if (exam.getEid() != -1 && exam.getScore() == -1) {
+                    String sql_delete_exam = "DELETE Exam WHERE eid = ?";
                     PreparedStatement stm = connection.prepareStatement(sql_delete_exam);
                     stm.setInt(1, exam.getEid());
                     stm.executeUpdate();
@@ -140,13 +142,52 @@ public class ExamDBContext extends DBContext<Exam> {
                 Logger.getLogger(ExamDBContext.class.getName()).log(Level.SEVERE, null, ex1);
             }
         } finally {
-     
-       try {
+
+            try {
                 connection.setAutoCommit(true);
             } catch (SQLException ex) {
                 Logger.getLogger(ExamDBContext.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    public ArrayList<Exam> showmark(int subid) {
+        ArrayList<Exam> exams = new ArrayList<>();
+        try {
+            String sql = "SELECT A.* FROM\n"
+                    + "               (SELECT eid,sid,aid,score,subid,date FROM Exam) A\n"
+                    + "                INNER JOIN\n"
+                    + "                (SELECT sid,aid,MAX(date) as date FROM Exam\n"
+                    + "                 GROUP BY sid,aid) B\n"
+                    + "                 ON A.aid = B.aid AND A.sid = B.sid AND A.date = B.date\n"
+                    + "                 where subid = 2";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, subid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Exam e = new Exam();
+                e.setEid(rs.getInt("eid"));
+
+                Assessment a = new Assessment();
+                a.setAid(rs.getInt("aid"));
+                a.setSubid(rs.getInt("subid"));
+
+                Student s = new Student();
+                s.setSid(rs.getInt("sid"));
+
+                e.setScore(rs.getFloat("score"));
+                e.setDate(rs.getDate("date"));
+
+                e.setAssessment(a);
+                e.setStudent(s);
+
+                exams.add(e);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return exams;
     }
 
     @Override
@@ -173,10 +214,11 @@ public class ExamDBContext extends DBContext<Exam> {
     public Exam getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-  public static void main(String[] args) {
+
+    public static void main(String[] args) {
         ExamDBContext db = new ExamDBContext();
         ArrayList<Exam> list = db.search(1, 1);
-      
+
         System.out.println("" + list);
     }
 }

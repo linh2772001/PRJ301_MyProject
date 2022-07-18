@@ -86,8 +86,10 @@ public class AssessmentController extends HttpServlet {
         ExamDBContext examdb = new ExamDBContext();
         ArrayList<Exam> exam = examdb.search(sid, subid);
         float total = 0;
+        
         for (Exam exam1 : exam) {
             total = total + exam1.getScore()/100*exam1.getAssessment().getWeight();
+            
         }
         
 

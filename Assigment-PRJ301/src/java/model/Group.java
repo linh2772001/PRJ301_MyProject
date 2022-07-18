@@ -14,7 +14,16 @@ public class Group {
     private int gid;
     private String gname;
     private Subjects subjects;
-    ArrayList<Student> students = new ArrayList<>();
+//    ArrayList<Student> students = new ArrayList<>();
+    private Teacher teacher;
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     public Subjects getSubjects() {
         return subjects;
@@ -40,13 +49,9 @@ public class Group {
         this.gname = gname;
     }
 
-    public ArrayList<Student> getStudents() {
-        return students;
-    }
+ 
 
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }
+   
     
     
 }
