@@ -84,7 +84,7 @@
                     <tr>
                         <td></td>
                         <c:forEach items="${requestScope.assessment}" var="a">
-                            <td>${a.aname}</td>
+                            <td><a class="as">${a.aname}</a></td>
                         </c:forEach>
                     </tr>
 
@@ -123,6 +123,14 @@
 
     </body>
     <style>
+        .lienket1{
+            margin-left: 50px;
+        }
+        .as{
+            background-color: #F6A7C1;
+            display: flex;
+            padding-left: 10px;
+        }
         .a{
             width: 120px;
             height: 140px;
