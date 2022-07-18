@@ -5,21 +5,18 @@
 
 package TeacherController;
 
-import dal.GroupDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import model.Group;
 
 /**
  *
  * @author ASUS
  */
-public class GroupTeacher extends HttpServlet {
+public class ManageController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,16 +27,20 @@ public class GroupTeacher extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         int lid = Integer.parseInt(request.getParameter("lid"));
-        int subid = Integer.parseInt(request.getParameter("subid"));       
-        GroupDBContext dbgroup = new GroupDBContext();
-        ArrayList<Group> grouptecher = dbgroup.searchtecher(lid, subid);
-        request.setAttribute("grouptecher", grouptecher);
-        request.setAttribute("lid", lid);
-        request.setAttribute("subid", subid);
-        request.getRequestDispatcher("teacher/group.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ManageController</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ManageController at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     } 
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 

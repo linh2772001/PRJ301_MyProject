@@ -44,7 +44,7 @@
                             <li class="nav-item"><a class="nav-link" href="enrollsuject">View Mark</a></li>
                         </c:if>
                         
-                        <li class="nav-item"><a class="nav-link" href="#about"> Introduce</a></li>
+                        <li class="nav-item"><a class="nav-link" href="subjecttecher"> Enter Student Score</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Teacher</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>

@@ -88,75 +88,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </tbody>
         </table>
     </div> 
-    <div class="c">
-        <table style="width: 100%;"  >
-            <thead>
-                <tr>
-                    <th>Code Student</th>
-                    <th>Assignment1</th>
-                    <th>Assignment2</th>
-                    <th>Progeress Test 1</th>
-                    <th>Progeress Test</th>
-                    <th>Progeress Test</th>
-                    <th>Practical Exam</th>
-                    <th>Final Exam</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>HE150001</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>9</td>
-                    
-
-                </tr>
-                <tr>
-                    <td>HE150002</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>9</td>
-                    
-
-                </tr>
-                <tr>
-                    <td>HE150003</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>9</td>
-                    
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                   <td><a>Edit<td></th>
-                    <td><a>Delete<td></th>
-
-                </tr>
-                
+    
                 
 
-                                </tbody>
-                                </table>
-                                </div> 
+                             
+                                
                                 </body>
                                 </html>
